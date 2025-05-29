@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="frmBaoCaoCongNo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmBaoCaoTon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmCauHinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmDoiMK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmGioiThieu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmNguoiDung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmPhieuNhapSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmTacGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmTheLoai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmThem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmThuTien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmTrangChu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>
