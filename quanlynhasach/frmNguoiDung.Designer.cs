@@ -47,7 +47,7 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             btnXoa = new Button();
             btnSua = new Button();
-            button1 = new Button();
+            btnLamMoi = new Button();
             btnThem = new Button();
             dgv = new DataGridView();
             gThongTin.SuspendLayout();
@@ -63,7 +63,7 @@
             label5.AutoSize = true;
             label5.Location = new Point(721, 79);
             label5.Name = "label5";
-            label5.Size = new Size(82, 21);
+            label5.Size = new Size(66, 17);
             label5.TabIndex = 13;
             label5.Text = "Mật khẩu";
             // 
@@ -90,7 +90,7 @@
             label6.AutoSize = true;
             label6.Location = new Point(10, 33);
             label6.Name = "label6";
-            label6.Size = new Size(101, 21);
+            label6.Size = new Size(82, 17);
             label6.TabIndex = 13;
             label6.Text = "Phân quyền";
             // 
@@ -99,7 +99,7 @@
             label3.AutoSize = true;
             label3.Location = new Point(10, 77);
             label3.Name = "label3";
-            label3.Size = new Size(127, 21);
+            label3.Size = new Size(101, 17);
             label3.TabIndex = 13;
             label3.Text = "Mã người dùng";
             // 
@@ -108,10 +108,10 @@
             cbQuyen.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             cbQuyen.BackColor = Color.FromArgb(218, 227, 229);
             cbQuyen.FormattingEnabled = true;
-            cbQuyen.Items.AddRange(new object[] { "Tên sách", "Mã sách", "Thể loại", "Tác giả" });
+            cbQuyen.Items.AddRange(new object[] { "QuanTri", "NhanVien" });
             cbQuyen.Location = new Point(151, 25);
             cbQuyen.Name = "cbQuyen";
-            cbQuyen.Size = new Size(170, 29);
+            cbQuyen.Size = new Size(170, 24);
             cbQuyen.TabIndex = 3;
             // 
             // txtMatKhau
@@ -121,7 +121,7 @@
             txtMatKhau.ForeColor = Color.SlateGray;
             txtMatKhau.Location = new Point(817, 75);
             txtMatKhau.Name = "txtMatKhau";
-            txtMatKhau.Size = new Size(196, 29);
+            txtMatKhau.Size = new Size(196, 24);
             txtMatKhau.TabIndex = 14;
             // 
             // txtTen
@@ -131,7 +131,7 @@
             txtTen.ForeColor = Color.SlateGray;
             txtTen.Location = new Point(459, 75);
             txtTen.Name = "txtTen";
-            txtTen.Size = new Size(232, 29);
+            txtTen.Size = new Size(232, 24);
             txtTen.TabIndex = 14;
             // 
             // label4
@@ -139,7 +139,7 @@
             label4.AutoSize = true;
             label4.Location = new Point(362, 79);
             label4.Name = "label4";
-            label4.Size = new Size(83, 21);
+            label4.Size = new Size(67, 17);
             label4.TabIndex = 13;
             label4.Text = "Họ và tên";
             // 
@@ -150,7 +150,7 @@
             txtMa.ForeColor = Color.SlateGray;
             txtMa.Location = new Point(151, 73);
             txtMa.Name = "txtMa";
-            txtMa.Size = new Size(170, 29);
+            txtMa.Size = new Size(170, 24);
             txtMa.TabIndex = 14;
             // 
             // label2
@@ -158,7 +158,7 @@
             label2.AutoSize = true;
             label2.Location = new Point(12, 67);
             label2.Name = "label2";
-            label2.Size = new Size(113, 21);
+            label2.Size = new Size(91, 17);
             label2.TabIndex = 16;
             label2.Text = "Tra cứu theo:";
             // 
@@ -186,19 +186,19 @@
             txtTimKiem.ForeColor = Color.SlateGray;
             txtTimKiem.Location = new Point(192, 3);
             txtTimKiem.Name = "txtTimKiem";
-            txtTimKiem.Size = new Size(669, 29);
+            txtTimKiem.Size = new Size(669, 24);
             txtTimKiem.TabIndex = 2;
-            txtTimKiem.Text = "Nhập thông tin bạn muốn tra cứu";
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
             // 
             // cbTimKiem
             // 
             cbTimKiem.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             cbTimKiem.BackColor = Color.FromArgb(218, 227, 229);
             cbTimKiem.FormattingEnabled = true;
-            cbTimKiem.Items.AddRange(new object[] { "Tên sách", "Mã sách", "Thể loại", "Tác giả" });
+            cbTimKiem.Items.AddRange(new object[] { "QuanTri", "NhanVien" });
             cbTimKiem.Location = new Point(3, 3);
             cbTimKiem.Name = "cbTimKiem";
-            cbTimKiem.Size = new Size(183, 29);
+            cbTimKiem.Size = new Size(183, 24);
             cbTimKiem.TabIndex = 3;
             // 
             // pictureBox1
@@ -234,9 +234,9 @@
             lbControl.AutoSize = true;
             lbControl.Font = new Font("Cambria", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 163);
             lbControl.ForeColor = Color.FromArgb(4, 8, 15);
-            lbControl.Location = new Point(3, 7);
+            lbControl.Location = new Point(3, 11);
             lbControl.Name = "lbControl";
-            lbControl.Size = new Size(344, 33);
+            lbControl.Size = new Size(273, 26);
             lbControl.TabIndex = 8;
             lbControl.Text = "DANH SÁCH NGƯỜI DÙNG";
             lbControl.TextAlign = ContentAlignment.MiddleLeft;
@@ -251,7 +251,7 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 19.8051949F));
             tableLayoutPanel1.Controls.Add(btnXoa, 3, 0);
             tableLayoutPanel1.Controls.Add(btnSua, 2, 0);
-            tableLayoutPanel1.Controls.Add(button1, 0, 0);
+            tableLayoutPanel1.Controls.Add(btnLamMoi, 0, 0);
             tableLayoutPanel1.Controls.Add(btnThem, 1, 0);
             tableLayoutPanel1.Location = new Point(416, 3);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -288,19 +288,19 @@
             btnSua.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSua.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btnLamMoi
             // 
-            button1.BackColor = Color.FromArgb(217, 234, 248);
-            button1.Dock = DockStyle.Fill;
-            button1.Image = Properties.Resources.tt_reset;
-            button1.Location = new Point(3, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(136, 36);
-            button1.TabIndex = 9;
-            button1.Text = "     Làm mới";
-            button1.TextAlign = ContentAlignment.MiddleRight;
-            button1.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button1.UseVisualStyleBackColor = false;
+            btnLamMoi.BackColor = Color.FromArgb(217, 234, 248);
+            btnLamMoi.Dock = DockStyle.Fill;
+            btnLamMoi.Image = Properties.Resources.tt_reset;
+            btnLamMoi.Location = new Point(3, 3);
+            btnLamMoi.Name = "btnLamMoi";
+            btnLamMoi.Size = new Size(136, 36);
+            btnLamMoi.TabIndex = 9;
+            btnLamMoi.Text = "     Làm mới";
+            btnLamMoi.TextAlign = ContentAlignment.MiddleRight;
+            btnLamMoi.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnLamMoi.UseVisualStyleBackColor = false;
             // 
             // btnThem
             // 
@@ -328,7 +328,7 @@
             // 
             // frmNguoiDung
             // 
-            AutoScaleDimensions = new SizeF(10F, 21F);
+            AutoScaleDimensions = new SizeF(8F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(187, 209, 234);
             ClientSize = new Size(1028, 713);
@@ -378,7 +378,7 @@
         private TableLayoutPanel tableLayoutPanel1;
         private Button btnXoa;
         private Button btnSua;
-        private Button button1;
+        private Button btnLamMoi;
         private Button btnThem;
     }
 }
