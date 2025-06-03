@@ -100,10 +100,32 @@ namespace quanlynhasach
                     FOREIGN KEY (MaKH) REFERENCES KhachHang(MaKH),
                     FOREIGN KEY (NguoiLap) REFERENCES NguoiDung(TenDN)
                 );
+
+                CREATE TABLE TonDauKy (
+                    MaSach TEXT,
+                    Ngay DATE,
+                    SoLuong INTEGER,
+                    PRIMARY KEY (MaSach, Ngay),
+                    FOREIGN KEY (MaSach) REFERENCES Sach(MaSach)
+                );
             ";
 
                 using var cmd = new SqliteCommand(sql, connection);
                 cmd.ExecuteNonQuery();
+
+                string createTonDauKy = @"
+                    CREATE TABLE IF NOT EXISTS TonDauKy (
+                        MaSach TEXT,
+                        Ngay DATE,
+                        SoLuong INTEGER,
+                        PRIMARY KEY (MaSach, Ngay),
+                        FOREIGN KEY (MaSach) REFERENCES Sach(MaSach)
+                    );
+                ";
+                using (var cmdTonDauKy = new SqliteCommand(createTonDauKy, connection))
+                {
+                    cmdTonDauKy.ExecuteNonQuery();
+                }
 
                 string insertAdmin = @"
                     INSERT INTO NguoiDung (TenDN, HoTen, MatKhau, VaiTro)
@@ -115,4 +137,4 @@ namespace quanlynhasach
             }
         }
     }
-    }
+}

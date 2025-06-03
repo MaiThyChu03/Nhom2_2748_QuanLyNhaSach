@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             gThongTin = new GroupBox();
+            cbMaKH = new ComboBox();
+            txtTen = new TextBox();
             btnIn = new Button();
             btnThem_KH = new Button();
             tlpDSSach = new TableLayoutPanel();
@@ -50,8 +52,6 @@
             label4 = new Label();
             txtMa = new TextBox();
             dgv = new DataGridView();
-            cbMaKH = new ComboBox();
-            txtTen = new TextBox();
             gThongTin.SuspendLayout();
             tlpDSSach.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nSoLuong).BeginInit();
@@ -85,6 +85,25 @@
             gThongTin.TabIndex = 21;
             gThongTin.TabStop = false;
             gThongTin.Text = "Thông tin";
+            gThongTin.Enter += gThongTin_Enter;
+            // 
+            // cbMaKH
+            // 
+            cbMaKH.FormattingEnabled = true;
+            cbMaKH.Location = new Point(158, 116);
+            cbMaKH.Name = "cbMaKH";
+            cbMaKH.Size = new Size(116, 24);
+            cbMaKH.TabIndex = 44;
+            // 
+            // txtTen
+            // 
+            txtTen.BackColor = Color.FromArgb(218, 227, 229);
+            txtTen.BorderStyle = BorderStyle.FixedSingle;
+            txtTen.ForeColor = Color.SlateGray;
+            txtTen.Location = new Point(280, 116);
+            txtTen.Name = "txtTen";
+            txtTen.Size = new Size(225, 24);
+            txtTen.TabIndex = 45;
             // 
             // btnIn
             // 
@@ -100,6 +119,7 @@
             btnIn.TextAlign = ContentAlignment.MiddleRight;
             btnIn.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnIn.UseVisualStyleBackColor = false;
+            btnIn.Click += btnIn_Click;
             // 
             // btnThem_KH
             // 
@@ -149,6 +169,7 @@
             btnXoa.TextAlign = ContentAlignment.MiddleRight;
             btnXoa.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnXoa.UseVisualStyleBackColor = false;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnSua
             // 
@@ -163,6 +184,7 @@
             btnSua.TextAlign = ContentAlignment.MiddleRight;
             btnSua.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSua.UseVisualStyleBackColor = false;
+            btnSua.Click += btnSua_Click;
             // 
             // btnLamMoi
             // 
@@ -177,6 +199,7 @@
             btnLamMoi.TextAlign = ContentAlignment.MiddleRight;
             btnLamMoi.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnLamMoi.UseVisualStyleBackColor = false;
+            btnLamMoi.Click += btnLamMoi_Click_1;
             // 
             // btnThem
             // 
@@ -191,12 +214,13 @@
             btnThem.TextAlign = ContentAlignment.MiddleRight;
             btnThem.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnThem.UseVisualStyleBackColor = false;
+            btnThem.Click += btnThem_Click;
             // 
             // nSoLuong
             // 
             nSoLuong.Location = new Point(792, 116);
             nSoLuong.Name = "nSoLuong";
-            nSoLuong.Size = new Size(170, 29);
+            nSoLuong.Size = new Size(170, 24);
             nSoLuong.TabIndex = 16;
             // 
             // dtpNgayLap
@@ -204,7 +228,7 @@
             dtpNgayLap.Enabled = false;
             dtpNgayLap.Location = new Point(158, 24);
             dtpNgayLap.Name = "dtpNgayLap";
-            dtpNgayLap.Size = new Size(285, 29);
+            dtpNgayLap.Size = new Size(285, 24);
             dtpNgayLap.TabIndex = 15;
             // 
             // label6
@@ -212,7 +236,7 @@
             label6.AutoSize = true;
             label6.Location = new Point(7, 30);
             label6.Name = "label6";
-            label6.Size = new Size(113, 21);
+            label6.Size = new Size(91, 17);
             label6.TabIndex = 13;
             label6.Text = "Ngày thu tiền";
             // 
@@ -221,7 +245,7 @@
             label3.AutoSize = true;
             label3.Location = new Point(7, 75);
             label3.Name = "label3";
-            label3.Size = new Size(112, 21);
+            label3.Size = new Size(89, 17);
             label3.TabIndex = 13;
             label3.Text = "Mã phiếu thu";
             // 
@@ -232,7 +256,7 @@
             txtEmail.ForeColor = Color.SlateGray;
             txtEmail.Location = new Point(792, 207);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(400, 29);
+            txtEmail.Size = new Size(400, 24);
             txtEmail.TabIndex = 14;
             txtEmail.KeyPress += txtDienThoai_KeyPress;
             // 
@@ -241,7 +265,7 @@
             label7.AutoSize = true;
             label7.Location = new Point(649, 210);
             label7.Name = "label7";
-            label7.Size = new Size(54, 21);
+            label7.Size = new Size(44, 17);
             label7.TabIndex = 13;
             label7.Text = "Email";
             // 
@@ -252,8 +276,9 @@
             txtDienThoai.ForeColor = Color.SlateGray;
             txtDienThoai.Location = new Point(158, 208);
             txtDienThoai.Name = "txtDienThoai";
-            txtDienThoai.Size = new Size(285, 29);
+            txtDienThoai.Size = new Size(285, 24);
             txtDienThoai.TabIndex = 14;
+            txtDienThoai.TextChanged += txtDienThoai_TextChanged;
             txtDienThoai.KeyPress += txtDienThoai_KeyPress;
             // 
             // txtDiaChi
@@ -264,7 +289,7 @@
             txtDiaChi.ForeColor = Color.SlateGray;
             txtDiaChi.Location = new Point(158, 163);
             txtDiaChi.Name = "txtDiaChi";
-            txtDiaChi.Size = new Size(1034, 29);
+            txtDiaChi.Size = new Size(1034, 24);
             txtDiaChi.TabIndex = 14;
             // 
             // label1
@@ -272,7 +297,7 @@
             label1.AutoSize = true;
             label1.Location = new Point(7, 212);
             label1.Name = "label1";
-            label1.Size = new Size(90, 21);
+            label1.Size = new Size(72, 17);
             label1.TabIndex = 13;
             label1.Text = "Điện thoại";
             // 
@@ -281,7 +306,7 @@
             label5.AutoSize = true;
             label5.Location = new Point(7, 167);
             label5.Name = "label5";
-            label5.Size = new Size(63, 21);
+            label5.Size = new Size(51, 17);
             label5.TabIndex = 13;
             label5.Text = "Địa chỉ";
             // 
@@ -290,7 +315,7 @@
             label8.AutoSize = true;
             label8.Location = new Point(649, 120);
             label8.Name = "label8";
-            label8.Size = new Size(93, 21);
+            label8.Size = new Size(74, 17);
             label8.TabIndex = 13;
             label8.Text = "Số tiền thu";
             // 
@@ -299,7 +324,7 @@
             label4.AutoSize = true;
             label4.Location = new Point(7, 120);
             label4.Name = "label4";
-            label4.Size = new Size(131, 21);
+            label4.Size = new Size(105, 17);
             label4.TabIndex = 13;
             label4.Text = "Tên khách hàng";
             // 
@@ -310,7 +335,7 @@
             txtMa.ForeColor = Color.SlateGray;
             txtMa.Location = new Point(158, 71);
             txtMa.Name = "txtMa";
-            txtMa.Size = new Size(285, 29);
+            txtMa.Size = new Size(285, 24);
             txtMa.TabIndex = 14;
             // 
             // dgv
@@ -322,28 +347,12 @@
             dgv.RowHeadersWidth = 51;
             dgv.Size = new Size(1202, 479);
             dgv.TabIndex = 22;
-            // 
-            // cbMaKH
-            // 
-            cbMaKH.FormattingEnabled = true;
-            cbMaKH.Location = new Point(158, 116);
-            cbMaKH.Name = "cbMaKH";
-            cbMaKH.Size = new Size(116, 29);
-            cbMaKH.TabIndex = 44;
-            // 
-            // txtTen
-            // 
-            txtTen.BackColor = Color.FromArgb(218, 227, 229);
-            txtTen.BorderStyle = BorderStyle.FixedSingle;
-            txtTen.ForeColor = Color.SlateGray;
-            txtTen.Location = new Point(280, 116);
-            txtTen.Name = "txtTen";
-            txtTen.Size = new Size(225, 29);
-            txtTen.TabIndex = 45;
+            dgv.CellClick += dgv_CellClick;
+            dgv.CellContentClick += dgv_CellContentClick;
             // 
             // frmThuTien
             // 
-            AutoScaleDimensions = new SizeF(10F, 21F);
+            AutoScaleDimensions = new SizeF(8F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(187, 209, 234);
             ClientSize = new Size(1210, 751);
@@ -362,6 +371,11 @@
             ((System.ComponentModel.ISupportInitialize)nSoLuong).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgv).EndInit();
             ResumeLayout(false);
+        }
+
+        private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Add your logic here for handling the CellContentClick event
         }
 
         #endregion

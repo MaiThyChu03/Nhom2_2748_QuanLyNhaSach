@@ -63,12 +63,13 @@
             btnIn.TextAlign = ContentAlignment.MiddleRight;
             btnIn.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnIn.UseVisualStyleBackColor = false;
+            btnIn.Click += btnIn_Click;
             // 
             // dtp
             // 
             dtp.Location = new Point(82, 79);
             dtp.Name = "dtp";
-            dtp.Size = new Size(289, 29);
+            dtp.Size = new Size(289, 24);
             dtp.TabIndex = 41;
             // 
             // label2
@@ -78,7 +79,7 @@
             label2.ForeColor = Color.Black;
             label2.Location = new Point(12, 83);
             label2.Name = "label2";
-            label2.Size = new Size(64, 23);
+            label2.Size = new Size(52, 19);
             label2.TabIndex = 40;
             label2.Text = "Tháng";
             // 
@@ -121,7 +122,7 @@
             // 
             // frmBaoCaoTon
             // 
-            AutoScaleDimensions = new SizeF(10F, 21F);
+            AutoScaleDimensions = new SizeF(8F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(187, 209, 234);
             ClientSize = new Size(1028, 713);

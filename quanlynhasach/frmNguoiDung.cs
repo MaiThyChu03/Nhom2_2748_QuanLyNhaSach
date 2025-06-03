@@ -233,7 +233,6 @@ namespace quanlynhasach
                 try
                 {
                     conn.Open();
-                    // Search by username or full name (adjust as needed)
                     string query = "SELECT * FROM NguoiDung WHERE TenDN LIKE @kw OR HoTen LIKE @kw";
                     using (var cmd = new SqliteCommand(query, conn))
                     {
@@ -251,6 +250,11 @@ namespace quanlynhasach
                     MessageBox.Show("Lỗi khi tìm kiếm: " + ex.Message);
                 }
             }
+        }
+
+        private void frmNguoiDung_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

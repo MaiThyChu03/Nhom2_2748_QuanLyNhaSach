@@ -188,7 +188,7 @@
             txtTimKiem.Name = "txtTimKiem";
             txtTimKiem.Size = new Size(669, 24);
             txtTimKiem.TabIndex = 2;
-            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
+            txtTimKiem.TextChanged += txtTimKiem_TextChanged;
             // 
             // cbTimKiem
             // 
@@ -343,6 +343,7 @@
             Margin = new Padding(4, 3, 4, 3);
             Name = "frmNguoiDung";
             Text = "frmNguoiDung";
+            Load += frmNguoiDung_Load;
             gThongTin.ResumeLayout(false);
             gThongTin.PerformLayout();
             tlpTimKiem.ResumeLayout(false);
