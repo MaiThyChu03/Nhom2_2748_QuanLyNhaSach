@@ -1,18 +1,82 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\nhom2_qlns\\QuanLyNhaSach_Nhom2_TH27.48\\",
+  "WorkspaceRootPath": "D:\\Nhom2_2748_QuanLyNhaSach\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|d:\\nhom2_qlns\\quanlynhasach_nhom2_th27.48\\quanlynhasach\\frmdangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|solutionrelative:quanlynhasach\\frmdangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|d:\\nhom2_2748_quanlynhasach\\quanlynhasach\\frmphieunhapsach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|solutionrelative:quanlynhasach\\frmphieunhapsach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|d:\\nhom2_qlns\\quanlynhasach_nhom2_th27.48\\quanlynhasach\\frmdangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|solutionrelative:quanlynhasach\\frmdangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|d:\\nhom2_2748_quanlynhasach\\quanlynhasach\\frmhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|solutionrelative:quanlynhasach\\frmhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|d:\\nhom2_qlns\\quanlynhasach_nhom2_th27.48\\quanlynhasach\\frmkhachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frminhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|solutionrelative:quanlynhasach\\frminhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frminphieunhapsach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|solutionrelative:quanlynhasach\\frminphieunhapsach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|d:\\nhom2_2748_quanlynhasach\\quanlynhasach\\frminphieunhapsach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|solutionrelative:quanlynhasach\\frminphieunhapsach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmphieunhapsach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|solutionrelative:quanlynhasach\\frmphieunhapsach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|d:\\nhom2_2748_quanlynhasach\\quanlynhasach\\frminhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|solutionrelative:quanlynhasach\\frminhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|solutionrelative:quanlynhasach\\frmhoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|d:\\nhom2_2748_quanlynhasach\\quanlynhasach\\frmtrangchu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|solutionrelative:quanlynhasach\\frmtrangchu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|d:\\nhom2_2748_quanlynhasach\\quanlynhasach\\frmsach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|solutionrelative:quanlynhasach\\frmsach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmtrangchu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|solutionrelative:quanlynhasach\\frmtrangchu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmsach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|solutionrelative:quanlynhasach\\frmsach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|d:\\nhom2_2748_quanlynhasach\\quanlynhasach\\frmkhachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|solutionrelative:quanlynhasach\\frmkhachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmkhachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|solutionrelative:quanlynhasach\\frmkhachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|d:\\nhom2_2748_quanlynhasach\\quanlynhasach\\frmtheloai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|solutionrelative:quanlynhasach\\frmtheloai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmtheloai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|solutionrelative:quanlynhasach\\frmtheloai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|d:\\nhom2_2748_quanlynhasach\\quanlynhasach\\frmtacgia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|solutionrelative:quanlynhasach\\frmtacgia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmtacgia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|solutionrelative:quanlynhasach\\frmtacgia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|d:\\nhom2_2748_quanlynhasach\\quanlynhasach\\db_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48DACE42-6BE2-446D-87FE-6F0B206D4328}|quanlynhasach\\quanlynhasach.csproj|solutionrelative:quanlynhasach\\db_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,48 +86,238 @@
       "DocumentGroups": [
         {
           "DockedWidth": 300,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "frmDangNhap.cs",
-              "DocumentMoniker": "D:\\nhom2_qlns\\QuanLyNhaSach_Nhom2_TH27.48\\quanlynhasach\\frmDangNhap.cs",
-              "RelativeDocumentMoniker": "quanlynhasach\\frmDangNhap.cs",
-              "ToolTip": "D:\\nhom2_qlns\\QuanLyNhaSach_Nhom2_TH27.48\\quanlynhasach\\frmDangNhap.cs",
-              "RelativeToolTip": "quanlynhasach\\frmDangNhap.cs",
-              "ViewState": "AgIAAEQAAAAAAAAAAAAWwFsAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-29T18:04:32.262Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "frmDangNhap.cs [Design]",
-              "DocumentMoniker": "D:\\nhom2_qlns\\QuanLyNhaSach_Nhom2_TH27.48\\quanlynhasach\\frmDangNhap.cs",
-              "RelativeDocumentMoniker": "quanlynhasach\\frmDangNhap.cs",
-              "ToolTip": "D:\\nhom2_qlns\\QuanLyNhaSach_Nhom2_TH27.48\\quanlynhasach\\frmDangNhap.cs [Design]",
-              "RelativeToolTip": "quanlynhasach\\frmDangNhap.cs [Design]",
+              "DocumentIndex": 4,
+              "Title": "frmInPhieuNhapSach.cs",
+              "DocumentMoniker": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmInPhieuNhapSach.cs",
+              "RelativeDocumentMoniker": "quanlynhasach\\frmInPhieuNhapSach.cs",
+              "ToolTip": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmInPhieuNhapSach.cs",
+              "RelativeToolTip": "quanlynhasach\\frmInPhieuNhapSach.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-29T18:04:23.395Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-06-03T18:43:59.705Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "frmInPhieuNhapSach.cs [Design]",
+              "DocumentMoniker": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmInPhieuNhapSach.cs",
+              "RelativeDocumentMoniker": "quanlynhasach\\frmInPhieuNhapSach.cs",
+              "ToolTip": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmInPhieuNhapSach.cs [Design]",
+              "RelativeToolTip": "quanlynhasach\\frmInPhieuNhapSach.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T18:42:07.639Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "frmKhachHang.cs [Design]",
-              "DocumentMoniker": "D:\\nhom2_qlns\\QuanLyNhaSach_Nhom2_TH27.48\\quanlynhasach\\frmKhachHang.cs",
+              "Title": "frmInHoaDon.cs [Design]",
+              "DocumentMoniker": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmInHoaDon.cs",
+              "RelativeDocumentMoniker": "quanlynhasach\\frmInHoaDon.cs",
+              "ToolTip": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmInHoaDon.cs [Design]",
+              "RelativeToolTip": "quanlynhasach\\frmInHoaDon.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T18:17:23.867Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmHoaDon.cs",
+              "DocumentMoniker": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmHoaDon.cs",
+              "RelativeDocumentMoniker": "quanlynhasach\\frmHoaDon.cs",
+              "ToolTip": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmHoaDon.cs",
+              "RelativeToolTip": "quanlynhasach\\frmHoaDon.cs",
+              "ViewState": "AgIAABgBAAAAAAAAAAAAwDYBAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T13:51:31.352Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmPhieuNhapSach.cs",
+              "DocumentMoniker": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmPhieuNhapSach.cs",
+              "RelativeDocumentMoniker": "quanlynhasach\\frmPhieuNhapSach.cs",
+              "ToolTip": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmPhieuNhapSach.cs",
+              "RelativeToolTip": "quanlynhasach\\frmPhieuNhapSach.cs",
+              "ViewState": "AgIAAJ8CAAAAAAAAAAAlwKsCAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T13:49:55.315Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "frmHoaDon.cs [Design]",
+              "DocumentMoniker": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmHoaDon.cs",
+              "RelativeDocumentMoniker": "quanlynhasach\\frmHoaDon.cs",
+              "ToolTip": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmHoaDon.cs [Design]",
+              "RelativeToolTip": "quanlynhasach\\frmHoaDon.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T10:30:00.336Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "frmPhieuNhapSach.cs [Design]",
+              "DocumentMoniker": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmPhieuNhapSach.cs",
+              "RelativeDocumentMoniker": "quanlynhasach\\frmPhieuNhapSach.cs",
+              "ToolTip": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmPhieuNhapSach.cs [Design]",
+              "RelativeToolTip": "quanlynhasach\\frmPhieuNhapSach.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T10:32:40.485Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "frmInHoaDon.cs",
+              "DocumentMoniker": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmInHoaDon.cs",
+              "RelativeDocumentMoniker": "quanlynhasach\\frmInHoaDon.cs",
+              "ToolTip": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmInHoaDon.cs",
+              "RelativeToolTip": "quanlynhasach\\frmInHoaDon.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T18:21:24.724Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "frmTrangChu.cs",
+              "DocumentMoniker": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmTrangChu.cs",
+              "RelativeDocumentMoniker": "quanlynhasach\\frmTrangChu.cs",
+              "ToolTip": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmTrangChu.cs",
+              "RelativeToolTip": "quanlynhasach\\frmTrangChu.cs",
+              "ViewState": "AgIAABwBAAAAAAAAAAAMwDIAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T14:34:48.35Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "frmSach.cs",
+              "DocumentMoniker": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmSach.cs",
+              "RelativeDocumentMoniker": "quanlynhasach\\frmSach.cs",
+              "ToolTip": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmSach.cs",
+              "RelativeToolTip": "quanlynhasach\\frmSach.cs",
+              "ViewState": "AgIAAPAAAAAAAAAAAAAlwNMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T14:09:58.792Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "frmTrangChu.cs [Design]",
+              "DocumentMoniker": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmTrangChu.cs",
+              "RelativeDocumentMoniker": "quanlynhasach\\frmTrangChu.cs",
+              "ToolTip": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmTrangChu.cs [Design]",
+              "RelativeToolTip": "quanlynhasach\\frmTrangChu.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T10:34:04.176Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "frmSach.cs [Design]",
+              "DocumentMoniker": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmSach.cs",
+              "RelativeDocumentMoniker": "quanlynhasach\\frmSach.cs",
+              "ToolTip": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmSach.cs [Design]",
+              "RelativeToolTip": "quanlynhasach\\frmSach.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T10:33:26.385Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "frmTheLoai.cs",
+              "DocumentMoniker": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmTheLoai.cs",
+              "RelativeDocumentMoniker": "quanlynhasach\\frmTheLoai.cs",
+              "ToolTip": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmTheLoai.cs",
+              "RelativeToolTip": "quanlynhasach\\frmTheLoai.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAkwGYAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T14:08:09.907Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "frmKhachHang.cs",
+              "DocumentMoniker": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmKhachHang.cs",
               "RelativeDocumentMoniker": "quanlynhasach\\frmKhachHang.cs",
-              "ToolTip": "D:\\nhom2_qlns\\QuanLyNhaSach_Nhom2_TH27.48\\quanlynhasach\\frmKhachHang.cs [Design]",
+              "ToolTip": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmKhachHang.cs",
+              "RelativeToolTip": "quanlynhasach\\frmKhachHang.cs",
+              "ViewState": "AgIAAJoAAAAAAAAAAAAhwKMAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T14:26:27.59Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "frmKhachHang.cs [Design]",
+              "DocumentMoniker": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmKhachHang.cs",
+              "RelativeDocumentMoniker": "quanlynhasach\\frmKhachHang.cs",
+              "ToolTip": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmKhachHang.cs [Design]",
               "RelativeToolTip": "quanlynhasach\\frmKhachHang.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-29T18:03:27.602Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-06-03T10:32:27.529Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "frmTheLoai.cs [Design]",
+              "DocumentMoniker": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmTheLoai.cs",
+              "RelativeDocumentMoniker": "quanlynhasach\\frmTheLoai.cs",
+              "ToolTip": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmTheLoai.cs [Design]",
+              "RelativeToolTip": "quanlynhasach\\frmTheLoai.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T10:33:50.187Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "frmTacGia.cs",
+              "DocumentMoniker": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmTacGia.cs",
+              "RelativeDocumentMoniker": "quanlynhasach\\frmTacGia.cs",
+              "ToolTip": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmTacGia.cs",
+              "RelativeToolTip": "quanlynhasach\\frmTacGia.cs",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAhwIMAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T14:05:09.122Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "frmTacGia.cs [Design]",
+              "DocumentMoniker": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmTacGia.cs",
+              "RelativeDocumentMoniker": "quanlynhasach\\frmTacGia.cs",
+              "ToolTip": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\frmTacGia.cs [Design]",
+              "RelativeToolTip": "quanlynhasach\\frmTacGia.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T10:33:40.403Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Db_Init.cs",
+              "DocumentMoniker": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\Db_Init.cs",
+              "RelativeDocumentMoniker": "quanlynhasach\\Db_Init.cs",
+              "ToolTip": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\Db_Init.cs",
+              "RelativeToolTip": "quanlynhasach\\Db_Init.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAQwEgAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T11:39:27.015Z"
             }
           ]
         }

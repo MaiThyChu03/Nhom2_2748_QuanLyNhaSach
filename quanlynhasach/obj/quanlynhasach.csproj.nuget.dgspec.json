@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\nhom2_qlns\\QuanLyNhaSach_Nhom2_TH27.48\\quanlynhasach\\quanlynhasach.csproj": {}
+    "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\quanlynhasach.csproj": {}
   },
   "projects": {
-    "D:\\nhom2_qlns\\QuanLyNhaSach_Nhom2_TH27.48\\quanlynhasach\\quanlynhasach.csproj": {
+    "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\quanlynhasach.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\nhom2_qlns\\QuanLyNhaSach_Nhom2_TH27.48\\quanlynhasach\\quanlynhasach.csproj",
+        "projectUniqueName": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\quanlynhasach.csproj",
         "projectName": "quanlynhasach",
-        "projectPath": "D:\\nhom2_qlns\\QuanLyNhaSach_Nhom2_TH27.48\\quanlynhasach\\quanlynhasach.csproj",
-        "packagesPath": "C:\\Users\\chuth\\.nuget\\packages\\",
-        "outputPath": "D:\\nhom2_qlns\\QuanLyNhaSach_Nhom2_TH27.48\\quanlynhasach\\obj\\",
+        "projectPath": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\quanlynhasach.csproj",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+        "outputPath": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "D:\\VisualStudio\\components\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\chuth\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -44,7 +45,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0-windows7.0": {
@@ -53,6 +54,10 @@
             "Microsoft.Data.Sqlite": {
               "target": "Package",
               "version": "[9.0.5, )"
+            },
+            "System.Data.SQLite": {
+              "target": "Package",
+              "version": "[1.0.119, )"
             }
           },
           "imports": [
@@ -74,7 +79,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -50,6 +50,7 @@
             pBody = new Panel();
             pNav = new Panel();
             pChucNang = new Panel();
+            dgv = new DataGridView();
             tlpDSSach = new TableLayoutPanel();
             lbTenChucNang = new Label();
             tableLayoutPanel2 = new TableLayoutPanel();
@@ -58,7 +59,6 @@
             btnThem = new Button();
             label2 = new Label();
             pictureBox1 = new PictureBox();
-            dgv = new DataGridView();
             tlpTimKiem = new TableLayoutPanel();
             txtTimKiem = new TextBox();
             cbTimKiem = new ComboBox();
@@ -70,10 +70,10 @@
             pBody.SuspendLayout();
             pNav.SuspendLayout();
             pChucNang.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv).BeginInit();
             tlpDSSach.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dgv).BeginInit();
             tlpTimKiem.SuspendLayout();
             SuspendLayout();
             // 
@@ -383,16 +383,28 @@
             // 
             // pChucNang
             // 
+            pChucNang.Controls.Add(dgv);
             pChucNang.Controls.Add(tlpDSSach);
             pChucNang.Controls.Add(label2);
             pChucNang.Controls.Add(pictureBox1);
-            pChucNang.Controls.Add(dgv);
             pChucNang.Controls.Add(tlpTimKiem);
             pChucNang.Dock = DockStyle.Fill;
             pChucNang.Location = new Point(0, 0);
             pChucNang.Name = "pChucNang";
             pChucNang.Size = new Size(1026, 713);
             pChucNang.TabIndex = 0;
+            // 
+            // dgv
+            // 
+            dgv.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv.Location = new Point(4, 117);
+            dgv.Name = "dgv";
+            dgv.RowHeadersWidth = 51;
+            dgv.Size = new Size(1019, 591);
+            dgv.TabIndex = 37;
+            dgv.CellContentClick += dgv_CellContentClick;
             // 
             // tlpDSSach
             // 
@@ -455,6 +467,7 @@
             btnXoa.TextAlign = ContentAlignment.MiddleRight;
             btnXoa.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnXoa.UseVisualStyleBackColor = false;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnSua
             // 
@@ -504,16 +517,6 @@
             pictureBox1.Size = new Size(55, 48);
             pictureBox1.TabIndex = 42;
             pictureBox1.TabStop = false;
-            // 
-            // dgv
-            // 
-            dgv.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv.Location = new Point(4, 117);
-            dgv.Name = "dgv";
-            dgv.RowHeadersWidth = 51;
-            dgv.Size = new Size(1019, 591);
-            dgv.TabIndex = 37;
             // 
             // tlpTimKiem
             // 
@@ -594,11 +597,11 @@
             pNav.ResumeLayout(false);
             pChucNang.ResumeLayout(false);
             pChucNang.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv).EndInit();
             tlpDSSach.ResumeLayout(false);
             tlpDSSach.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgv).EndInit();
             tlpTimKiem.ResumeLayout(false);
             tlpTimKiem.PerformLayout();
             ResumeLayout(false);

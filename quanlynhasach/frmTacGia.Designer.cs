@@ -35,7 +35,7 @@
             txtTen = new TextBox();
             label4 = new Label();
             txtMa = new TextBox();
-            dgv = new DataGridView();
+            dgvTacGia = new DataGridView();
             tlpTimKiem = new TableLayoutPanel();
             txtTimKiem = new TextBox();
             cbTimKiem = new ComboBox();
@@ -46,10 +46,10 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             btnXoa = new Button();
             btnSua = new Button();
-            button1 = new Button();
+            btn_LamMoi = new Button();
             btnThem = new Button();
             gThongTin.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgv).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvTacGia).BeginInit();
             tlpTimKiem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tlpDSSach.SuspendLayout();
@@ -130,15 +130,18 @@
             txtMa.Size = new Size(239, 29);
             txtMa.TabIndex = 14;
             // 
-            // dgv
+            // dgvTacGia
             // 
-            dgv.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv.Location = new Point(5, 245);
-            dgv.Name = "dgv";
-            dgv.RowHeadersWidth = 51;
-            dgv.Size = new Size(1019, 464);
-            dgv.TabIndex = 18;
+            dgvTacGia.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvTacGia.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvTacGia.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvTacGia.Location = new Point(5, 245);
+            dgvTacGia.Name = "dgvTacGia";
+            dgvTacGia.RowHeadersWidth = 51;
+            dgvTacGia.Size = new Size(1019, 464);
+            dgvTacGia.TabIndex = 18;
+            dgvTacGia.CellClick += dgvTacGia_CellClick;
+            dgvTacGia.CellContentClick += dgvTacGia_CellClick;
             // 
             // tlpTimKiem
             // 
@@ -167,13 +170,14 @@
             txtTimKiem.Size = new Size(686, 29);
             txtTimKiem.TabIndex = 2;
             txtTimKiem.Text = "Nhập thông tin bạn muốn tra cứu";
+            txtTimKiem.TextChanged += txtTimKiem_TextChanged;
             // 
             // cbTimKiem
             // 
             cbTimKiem.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             cbTimKiem.BackColor = Color.FromArgb(218, 227, 229);
             cbTimKiem.FormattingEnabled = true;
-            cbTimKiem.Items.AddRange(new object[] { "Tên sách", "Mã sách", "Thể loại", "Tác giả" });
+            cbTimKiem.Items.AddRange(new object[] { "Mã tác giả", "Tên tác giả" });
             cbTimKiem.Location = new Point(3, 3);
             cbTimKiem.Name = "cbTimKiem";
             cbTimKiem.Size = new Size(187, 29);
@@ -238,7 +242,7 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 19.8051949F));
             tableLayoutPanel1.Controls.Add(btnXoa, 3, 0);
             tableLayoutPanel1.Controls.Add(btnSua, 2, 0);
-            tableLayoutPanel1.Controls.Add(button1, 0, 0);
+            tableLayoutPanel1.Controls.Add(btn_LamMoi, 0, 0);
             tableLayoutPanel1.Controls.Add(btnThem, 1, 0);
             tableLayoutPanel1.Location = new Point(416, 3);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -260,6 +264,7 @@
             btnXoa.TextAlign = ContentAlignment.MiddleRight;
             btnXoa.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnXoa.UseVisualStyleBackColor = false;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnSua
             // 
@@ -274,20 +279,22 @@
             btnSua.TextAlign = ContentAlignment.MiddleRight;
             btnSua.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSua.UseVisualStyleBackColor = false;
+            btnSua.Click += btnSua_Click;
             // 
-            // button1
+            // btn_LamMoi
             // 
-            button1.BackColor = Color.FromArgb(217, 234, 248);
-            button1.Dock = DockStyle.Fill;
-            button1.Image = Properties.Resources.tt_reset;
-            button1.Location = new Point(3, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(136, 36);
-            button1.TabIndex = 9;
-            button1.Text = "     Làm mới";
-            button1.TextAlign = ContentAlignment.MiddleRight;
-            button1.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button1.UseVisualStyleBackColor = false;
+            btn_LamMoi.BackColor = Color.FromArgb(217, 234, 248);
+            btn_LamMoi.Dock = DockStyle.Fill;
+            btn_LamMoi.Image = Properties.Resources.tt_reset;
+            btn_LamMoi.Location = new Point(3, 3);
+            btn_LamMoi.Name = "btn_LamMoi";
+            btn_LamMoi.Size = new Size(136, 36);
+            btn_LamMoi.TabIndex = 9;
+            btn_LamMoi.Text = "     Làm mới";
+            btn_LamMoi.TextAlign = ContentAlignment.MiddleRight;
+            btn_LamMoi.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btn_LamMoi.UseVisualStyleBackColor = false;
+            btn_LamMoi.Click += btnLamMoi_Click;
             // 
             // btnThem
             // 
@@ -302,6 +309,7 @@
             btnThem.TextAlign = ContentAlignment.MiddleRight;
             btnThem.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnThem.UseVisualStyleBackColor = false;
+            btnThem.Click += btnThem_Click;
             // 
             // frmTacGia
             // 
@@ -314,7 +322,7 @@
             Controls.Add(pictureBox1);
             Controls.Add(tlpDSSach);
             Controls.Add(gThongTin);
-            Controls.Add(dgv);
+            Controls.Add(dgvTacGia);
             Font = new Font("Cambria", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4, 3, 4, 3);
@@ -323,7 +331,7 @@
             Load += frmTacGia_Load;
             gThongTin.ResumeLayout(false);
             gThongTin.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgv).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvTacGia).EndInit();
             tlpTimKiem.ResumeLayout(false);
             tlpTimKiem.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -343,7 +351,7 @@
         private TextBox txtTen;
         private Label label4;
         private TextBox txtMa;
-        private DataGridView dgv;
+        private DataGridView dgvTacGia;
         private TableLayoutPanel tlpTimKiem;
         private TextBox txtTimKiem;
         private ComboBox cbTimKiem;
@@ -354,7 +362,7 @@
         private TableLayoutPanel tableLayoutPanel1;
         private Button btnXoa;
         private Button btnSua;
-        private Button button1;
+        private Button btn_LamMoi;
         private Button btnThem;
     }
 }

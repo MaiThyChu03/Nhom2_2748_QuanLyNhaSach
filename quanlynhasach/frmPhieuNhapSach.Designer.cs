@@ -35,6 +35,7 @@
             btnAn = new Button();
             btnPhong = new Button();
             gThongTin = new GroupBox();
+            btnIn = new Button();
             btnThem_TG = new Button();
             btnThem_TL = new Button();
             btnThem_Sach = new Button();
@@ -45,8 +46,8 @@
             btnThem = new Button();
             nGia = new NumericUpDown();
             nSoLuong = new NumericUpDown();
-            comboBox2 = new ComboBox();
-            comboBox1 = new ComboBox();
+            cbTacGia = new ComboBox();
+            cbTenSach = new ComboBox();
             cbTheLoai = new ComboBox();
             dtpNgayLap = new DateTimePicker();
             label10 = new Label();
@@ -60,7 +61,7 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel3 = new TableLayoutPanel();
             label9 = new Label();
-            dgvCTHD = new DataGridView();
+            dgvCTPN = new DataGridView();
             tableLayoutPanel2 = new TableLayoutPanel();
             bntThemSach = new Button();
             btnLoaiBoSach = new Button();
@@ -68,7 +69,6 @@
             dgvChon = new DataGridView();
             txtTimKiem = new TextBox();
             label8 = new Label();
-            btnIn = new Button();
             panel1.SuspendLayout();
             gThongTin.SuspendLayout();
             tlpDSSach.SuspendLayout();
@@ -76,7 +76,7 @@
             ((System.ComponentModel.ISupportInitialize)nSoLuong).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvCTHD).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvCTPN).BeginInit();
             tableLayoutPanel2.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvChon).BeginInit();
@@ -175,8 +175,8 @@
             gThongTin.Controls.Add(tlpDSSach);
             gThongTin.Controls.Add(nGia);
             gThongTin.Controls.Add(nSoLuong);
-            gThongTin.Controls.Add(comboBox2);
-            gThongTin.Controls.Add(comboBox1);
+            gThongTin.Controls.Add(cbTacGia);
+            gThongTin.Controls.Add(cbTenSach);
             gThongTin.Controls.Add(cbTheLoai);
             gThongTin.Controls.Add(dtpNgayLap);
             gThongTin.Controls.Add(label10);
@@ -194,6 +194,22 @@
             gThongTin.TabIndex = 17;
             gThongTin.TabStop = false;
             gThongTin.Text = "Thông tin";
+            // 
+            // btnIn
+            // 
+            btnIn.BackColor = Color.FromArgb(217, 234, 248);
+            btnIn.Font = new Font("Cambria", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            btnIn.ForeColor = Color.Black;
+            btnIn.Image = Properties.Resources.n_icon_print;
+            btnIn.Location = new Point(455, 42);
+            btnIn.Name = "btnIn";
+            btnIn.Size = new Size(84, 36);
+            btnIn.TabIndex = 44;
+            btnIn.Text = "     In";
+            btnIn.TextAlign = ContentAlignment.MiddleRight;
+            btnIn.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnIn.UseVisualStyleBackColor = false;
+            btnIn.Click += btnIn_Click;
             // 
             // btnThem_TG
             // 
@@ -273,6 +289,7 @@
             btnXoa.TextAlign = ContentAlignment.MiddleRight;
             btnXoa.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnXoa.UseVisualStyleBackColor = false;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnSua
             // 
@@ -287,6 +304,7 @@
             btnSua.TextAlign = ContentAlignment.MiddleRight;
             btnSua.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSua.UseVisualStyleBackColor = false;
+            btnSua.Click += btnSua_Click;
             // 
             // btnLamMoi
             // 
@@ -301,6 +319,7 @@
             btnLamMoi.TextAlign = ContentAlignment.MiddleRight;
             btnLamMoi.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnLamMoi.UseVisualStyleBackColor = false;
+            btnLamMoi.Click += btnLamMoi_Click;
             // 
             // btnThem
             // 
@@ -315,6 +334,7 @@
             btnThem.TextAlign = ContentAlignment.MiddleRight;
             btnThem.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnThem.UseVisualStyleBackColor = false;
+            btnThem.Click += btnThem_Click;
             // 
             // nGia
             // 
@@ -330,21 +350,21 @@
             nSoLuong.Size = new Size(73, 31);
             nSoLuong.TabIndex = 19;
             // 
-            // comboBox2
+            // cbTacGia
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(158, 193);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(275, 31);
-            comboBox2.TabIndex = 18;
+            cbTacGia.FormattingEnabled = true;
+            cbTacGia.Location = new Point(158, 193);
+            cbTacGia.Name = "cbTacGia";
+            cbTacGia.Size = new Size(275, 31);
+            cbTacGia.TabIndex = 18;
             // 
-            // comboBox1
+            // cbTenSach
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(158, 93);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(275, 31);
-            comboBox1.TabIndex = 18;
+            cbTenSach.FormattingEnabled = true;
+            cbTenSach.Location = new Point(158, 93);
+            cbTenSach.Name = "cbTenSach";
+            cbTenSach.Size = new Size(275, 31);
+            cbTenSach.TabIndex = 18;
             // 
             // cbTheLoai
             // 
@@ -460,7 +480,7 @@
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
             tableLayoutPanel3.Controls.Add(label9, 0, 0);
-            tableLayoutPanel3.Controls.Add(dgvCTHD, 0, 1);
+            tableLayoutPanel3.Controls.Add(dgvCTPN, 0, 1);
             tableLayoutPanel3.Location = new Point(628, 3);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 2;
@@ -480,15 +500,16 @@
             label9.TabIndex = 13;
             label9.Text = "Danh sách sách";
             // 
-            // dgvCTHD
+            // dgvCTPN
             // 
-            dgvCTHD.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgvCTHD.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCTHD.Location = new Point(3, 27);
-            dgvCTHD.Name = "dgvCTHD";
-            dgvCTHD.RowHeadersWidth = 51;
-            dgvCTHD.Size = new Size(571, 421);
-            dgvCTHD.TabIndex = 13;
+            dgvCTPN.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvCTPN.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvCTPN.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCTPN.Location = new Point(3, 27);
+            dgvCTPN.Name = "dgvCTPN";
+            dgvCTPN.RowHeadersWidth = 51;
+            dgvCTPN.Size = new Size(571, 421);
+            dgvCTPN.TabIndex = 13;
             // 
             // tableLayoutPanel2
             // 
@@ -550,6 +571,7 @@
             // dgvChon
             // 
             dgvChon.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvChon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvChon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvChon.Location = new Point(6, 75);
             dgvChon.Name = "dgvChon";
@@ -578,21 +600,6 @@
             label8.TabIndex = 13;
             label8.Text = "Tìm kiếm";
             // 
-            // btnIn
-            // 
-            btnIn.BackColor = Color.FromArgb(217, 234, 248);
-            btnIn.Font = new Font("Cambria", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            btnIn.ForeColor = Color.Black;
-            btnIn.Image = Properties.Resources.n_icon_print;
-            btnIn.Location = new Point(455, 42);
-            btnIn.Name = "btnIn";
-            btnIn.Size = new Size(84, 36);
-            btnIn.TabIndex = 44;
-            btnIn.Text = "     In";
-            btnIn.TextAlign = ContentAlignment.MiddleRight;
-            btnIn.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnIn.UseVisualStyleBackColor = false;
-            // 
             // frmPhieuNhapSach
             // 
             AutoScaleDimensions = new SizeF(10F, 21F);
@@ -619,7 +626,7 @@
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvCTHD).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvCTPN).EndInit();
             tableLayoutPanel2.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -651,7 +658,7 @@
         private TableLayoutPanel tableLayoutPanel1;
         private TableLayoutPanel tableLayoutPanel3;
         private Label label9;
-        private DataGridView dgvCTHD;
+        private DataGridView dgvCTPN;
         private TableLayoutPanel tableLayoutPanel2;
         private Button bntThemSach;
         private Button btnLoaiBoSach;
@@ -659,8 +666,8 @@
         private DataGridView dgvChon;
         private TextBox txtTimKiem;
         private Label label8;
-        private ComboBox comboBox2;
-        private ComboBox comboBox1;
+        private ComboBox cbTacGia;
+        private ComboBox cbTenSach;
         private TableLayoutPanel tlpDSSach;
         private Button btnXoa;
         private Button btnSua;
