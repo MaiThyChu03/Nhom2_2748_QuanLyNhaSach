@@ -35,6 +35,12 @@
             btnPhong = new Button();
             btnThu = new Button();
             gThongTin = new GroupBox();
+            nGia = new NumericUpDown();
+            nSoLuong = new NumericUpDown();
+            label10 = new Label();
+            label11 = new Label();
+            btnIn = new Button();
+            btnThem_KH = new Button();
             tlpDSSach = new TableLayoutPanel();
             btnXoa = new Button();
             btnSua = new Button();
@@ -64,10 +70,10 @@
             label9 = new Label();
             dgvCTHD = new DataGridView();
             tableLayoutPanel1 = new TableLayoutPanel();
-            btnIn = new Button();
-            btnThem_KH = new Button();
             panel1.SuspendLayout();
             gThongTin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nGia).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nSoLuong).BeginInit();
             tlpDSSach.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvChon).BeginInit();
@@ -163,6 +169,10 @@
             // 
             gThongTin.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             gThongTin.BackColor = Color.FromArgb(161, 198, 234);
+            gThongTin.Controls.Add(nGia);
+            gThongTin.Controls.Add(nSoLuong);
+            gThongTin.Controls.Add(label10);
+            gThongTin.Controls.Add(label11);
             gThongTin.Controls.Add(btnIn);
             gThongTin.Controls.Add(btnThem_KH);
             gThongTin.Controls.Add(tlpDSSach);
@@ -186,6 +196,72 @@
             gThongTin.TabIndex = 16;
             gThongTin.TabStop = false;
             gThongTin.Text = "Thông tin";
+            // 
+            // nGia
+            // 
+            nGia.DecimalPlaces = 2;
+            nGia.Location = new Point(991, 134);
+            nGia.Name = "nGia";
+            nGia.ReadOnly = true;
+            nGia.Size = new Size(73, 31);
+            nGia.TabIndex = 50;
+            nGia.TabStop = false;
+            // 
+            // nSoLuong
+            // 
+            nSoLuong.Location = new Point(795, 132);
+            nSoLuong.Name = "nSoLuong";
+            nSoLuong.Size = new Size(73, 31);
+            nSoLuong.TabIndex = 49;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(889, 136);
+            label10.Name = "label10";
+            label10.Size = new Size(80, 23);
+            label10.TabIndex = 46;
+            label10.Text = "Đơn giá ";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(631, 136);
+            label11.Name = "label11";
+            label11.Size = new Size(85, 23);
+            label11.TabIndex = 47;
+            label11.Text = "Số lượng";
+            // 
+            // btnIn
+            // 
+            btnIn.BackColor = Color.FromArgb(217, 234, 248);
+            btnIn.Font = new Font("Cambria", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            btnIn.ForeColor = Color.Black;
+            btnIn.Image = Properties.Resources.n_icon_print;
+            btnIn.Location = new Point(457, 29);
+            btnIn.Name = "btnIn";
+            btnIn.Size = new Size(84, 36);
+            btnIn.TabIndex = 45;
+            btnIn.Text = "     In";
+            btnIn.TextAlign = ContentAlignment.MiddleRight;
+            btnIn.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnIn.UseVisualStyleBackColor = false;
+            btnIn.Click += btnIn_Click;
+            // 
+            // btnThem_KH
+            // 
+            btnThem_KH.BackColor = Color.FromArgb(217, 234, 248);
+            btnThem_KH.Font = new Font("Cambria", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            btnThem_KH.Image = Properties.Resources.n_icon_add;
+            btnThem_KH.Location = new Point(533, 78);
+            btnThem_KH.Name = "btnThem_KH";
+            btnThem_KH.Size = new Size(84, 36);
+            btnThem_KH.TabIndex = 44;
+            btnThem_KH.Text = "Thêm";
+            btnThem_KH.TextAlign = ContentAlignment.MiddleRight;
+            btnThem_KH.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnThem_KH.UseVisualStyleBackColor = false;
+            btnThem_KH.Click += btnThem_KH_Click;
             // 
             // tlpDSSach
             // 
@@ -220,6 +296,7 @@
             btnXoa.TextAlign = ContentAlignment.MiddleRight;
             btnXoa.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnXoa.UseVisualStyleBackColor = false;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnSua
             // 
@@ -234,6 +311,7 @@
             btnSua.TextAlign = ContentAlignment.MiddleRight;
             btnSua.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSua.UseVisualStyleBackColor = false;
+            btnSua.Click += btnSua_Click;
             // 
             // btnLamMoi
             // 
@@ -248,6 +326,7 @@
             btnLamMoi.TextAlign = ContentAlignment.MiddleRight;
             btnLamMoi.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnLamMoi.UseVisualStyleBackColor = false;
+            btnLamMoi.Click += btnLamMoi_Click;
             // 
             // btnThem
             // 
@@ -262,6 +341,7 @@
             btnThem.TextAlign = ContentAlignment.MiddleRight;
             btnThem.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnThem.UseVisualStyleBackColor = false;
+            btnThem.Click += btnThem_Click;
             // 
             // dtpNgayLap
             // 
@@ -296,6 +376,7 @@
             cbMaKH.Name = "cbMaKH";
             cbMaKH.Size = new Size(116, 31);
             cbMaKH.TabIndex = 10;
+            cbMaKH.SelectedIndexChanged += cbMaKH_SelectedIndexChanged;
             // 
             // txtEmail
             // 
@@ -335,7 +416,7 @@
             txtDiaChi.ForeColor = Color.SlateGray;
             txtDiaChi.Location = new Point(179, 136);
             txtDiaChi.Name = "txtDiaChi";
-            txtDiaChi.Size = new Size(1016, 31);
+            txtDiaChi.Size = new Size(438, 31);
             txtDiaChi.TabIndex = 14;
             // 
             // label1
@@ -424,12 +505,14 @@
             // dgvChon
             // 
             dgvChon.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvChon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvChon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvChon.Location = new Point(4, 84);
             dgvChon.Name = "dgvChon";
             dgvChon.RowHeadersWidth = 51;
             dgvChon.Size = new Size(547, 377);
             dgvChon.TabIndex = 13;
+            dgvChon.SelectionChanged += dgvChon_SelectionChanged;
             // 
             // tlpControl
             // 
@@ -460,6 +543,7 @@
             btnThemSach.TabIndex = 18;
             btnThemSach.Text = ">>";
             btnThemSach.UseVisualStyleBackColor = false;
+            btnThemSach.Click += btnThemSach_Click;
             // 
             // btnLoaiBoSach
             // 
@@ -474,6 +558,7 @@
             btnLoaiBoSach.TabIndex = 18;
             btnLoaiBoSach.Text = "<<";
             btnLoaiBoSach.UseVisualStyleBackColor = false;
+            btnLoaiBoSach.Click += btnLoaiBoSach_Click;
             // 
             // tlpPhai
             // 
@@ -505,12 +590,14 @@
             // dgvCTHD
             // 
             dgvCTHD.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvCTHD.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvCTHD.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCTHD.Location = new Point(3, 27);
             dgvCTHD.Name = "dgvCTHD";
             dgvCTHD.RowHeadersWidth = 51;
             dgvCTHD.Size = new Size(571, 434);
             dgvCTHD.TabIndex = 13;
+            dgvCTHD.SelectionChanged += dgvCTHD_SelectionChanged;
             // 
             // tableLayoutPanel1
             // 
@@ -528,37 +615,6 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Size = new Size(1208, 470);
             tableLayoutPanel1.TabIndex = 20;
-            // 
-            // btnIn
-            // 
-            btnIn.BackColor = Color.FromArgb(217, 234, 248);
-            btnIn.Font = new Font("Cambria", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            btnIn.ForeColor = Color.Black;
-            btnIn.Image = Properties.Resources.n_icon_print;
-            btnIn.Location = new Point(457, 29);
-            btnIn.Name = "btnIn";
-            btnIn.Size = new Size(84, 36);
-            btnIn.TabIndex = 45;
-            btnIn.Text = "     In";
-            btnIn.TextAlign = ContentAlignment.MiddleRight;
-            btnIn.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnIn.UseVisualStyleBackColor = false;
-            btnIn.Click += btnIn_Click;
-            // 
-            // btnThem_KH
-            // 
-            btnThem_KH.BackColor = Color.FromArgb(217, 234, 248);
-            btnThem_KH.Font = new Font("Cambria", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            btnThem_KH.Image = Properties.Resources.n_icon_add;
-            btnThem_KH.Location = new Point(533, 78);
-            btnThem_KH.Name = "btnThem_KH";
-            btnThem_KH.Size = new Size(84, 36);
-            btnThem_KH.TabIndex = 44;
-            btnThem_KH.Text = "Thêm";
-            btnThem_KH.TextAlign = ContentAlignment.MiddleRight;
-            btnThem_KH.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnThem_KH.UseVisualStyleBackColor = false;
-            btnThem_KH.Click += btnThem_KH_Click;
             // 
             // frmHoaDon
             // 
@@ -579,6 +635,8 @@
             panel1.PerformLayout();
             gThongTin.ResumeLayout(false);
             gThongTin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)nGia).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nSoLuong).EndInit();
             tlpDSSach.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -631,5 +689,9 @@
         private Button btnThem;
         private Button btnIn;
         private Button btnThem_KH;
+        private NumericUpDown nSoLuong;
+        private Label label10;
+        private Label label11;
+        private NumericUpDown nGia;
     }
 }

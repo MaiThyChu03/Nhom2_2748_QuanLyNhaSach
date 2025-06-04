@@ -12,7 +12,7 @@ namespace quanlynhasach
             // see https://aka.ms/applicationconfiguration.
             Db_Init.Initialize();
             ApplicationConfiguration.Initialize();
-            Application.Run(new frmMain());
+            Application.Run(new frmTrangChu());
         }
     }
 }

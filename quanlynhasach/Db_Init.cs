@@ -70,7 +70,7 @@ namespace quanlynhasach
                     MaSach TEXT,
                     SoLuong INTEGER,
                     DonGia REAL,
-                    PRIMARY KEY (MaHD, MaSach),
+                    PRIMARY KEY (MaHD, MaSach, DonGia),
                     FOREIGN KEY (MaHD) REFERENCES HoaDon(MaHD),
                     FOREIGN KEY (MaSach) REFERENCES Sach(MaSach)
                 );
@@ -86,6 +86,7 @@ namespace quanlynhasach
                     MaPN TEXT,
                     MaSach TEXT,
                     SoLuong INTEGER,
+                    DonGiaNhap REAL, 
                     PRIMARY KEY (MaPN, MaSach),
                     FOREIGN KEY (MaPN) REFERENCES PhieuNhap(MaPN),
                     FOREIGN KEY (MaSach) REFERENCES Sach(MaSach)

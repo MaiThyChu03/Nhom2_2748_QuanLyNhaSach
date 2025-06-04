@@ -34,8 +34,8 @@
             txtDienThoai = new TextBox();
             txtDiaChi = new TextBox();
             label1 = new Label();
-            label5 = new Label();
             txtMaKH = new TextBox();
+            txtMa = new TextBox();
             txtTen = new TextBox();
             label3 = new Label();
             label4 = new Label();
@@ -51,13 +51,13 @@
             label2 = new Label();
             pictureBox1 = new PictureBox();
             tlpDSSach = new TableLayoutPanel();
-            dgv = new DataGridView();
+            dgvKhachHang = new DataGridView();
             gThongTin.SuspendLayout();
             tlpTimKiem.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tlpDSSach.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgv).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvKhachHang).BeginInit();
             SuspendLayout();
             // 
             // gThongTin
@@ -68,8 +68,8 @@
             gThongTin.Controls.Add(txtDienThoai);
             gThongTin.Controls.Add(txtDiaChi);
             gThongTin.Controls.Add(label1);
-            gThongTin.Controls.Add(label5);
             gThongTin.Controls.Add(txtMaKH);
+            gThongTin.Controls.Add(txtMa);
             gThongTin.Controls.Add(txtTen);
             gThongTin.Controls.Add(label3);
             gThongTin.Controls.Add(label4);
@@ -90,7 +90,6 @@
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(312, 31);
             txtEmail.TabIndex = 19;
-            txtEmail.KeyPress += txtEmail_KeyPress;
             // 
             // label7
             // 
@@ -132,15 +131,6 @@
             label1.TabIndex = 16;
             label1.Text = "Điện thoại";
             // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(7, 84);
-            label5.Name = "label5";
-            label5.Size = new Size(69, 23);
-            label5.TabIndex = 17;
-            label5.Text = "Địa chỉ";
-            // 
             // txtMaKH
             // 
             txtMaKH.BackColor = Color.FromArgb(218, 227, 229);
@@ -150,6 +140,16 @@
             txtMaKH.Name = "txtMaKH";
             txtMaKH.Size = new Size(275, 31);
             txtMaKH.TabIndex = 22;
+            // 
+            // txtMa
+            // 
+            txtMa.BackColor = Color.FromArgb(218, 227, 229);
+            txtMa.BorderStyle = BorderStyle.FixedSingle;
+            txtMa.ForeColor = Color.SlateGray;
+            txtMa.Location = new Point(154, 32);
+            txtMa.Name = "txtMa";
+            txtMa.Size = new Size(275, 31);
+            txtMa.TabIndex = 22;
             // 
             // txtTen
             // 
@@ -205,6 +205,7 @@
             txtTimKiem.Name = "txtTimKiem";
             txtTimKiem.Size = new Size(669, 29);
             txtTimKiem.TabIndex = 2;
+            txtTimKiem.Text = "Nhập thông tin bạn muốn tra cứu";
             txtTimKiem.TextChanged += txtTimKiem_TextChanged;
             // 
             // cbTimKiem
@@ -212,11 +213,12 @@
             cbTimKiem.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             cbTimKiem.BackColor = Color.FromArgb(218, 227, 229);
             cbTimKiem.FormattingEnabled = true;
-            cbTimKiem.Items.AddRange(new object[] { "Mã Khách Hàng", "Tên Khách Hàng", "Email", "Điện Thoại" });
+            cbTimKiem.Items.AddRange(new object[] { "Mã Khách Hàng", "Tên Khách Hàng", "Email", "Điện Thoại", "Tên Khách", "Mã Khách", "SDT" });
             cbTimKiem.Location = new Point(3, 3);
             cbTimKiem.Name = "cbTimKiem";
             cbTimKiem.Size = new Size(183, 29);
             cbTimKiem.TabIndex = 3;
+            cbTimKiem.SelectedIndexChanged += cbTimKiem_SelectedIndexChanged;
             // 
             // btnXoa
             // 
@@ -343,15 +345,18 @@
             tlpDSSach.Size = new Size(965, 48);
             tlpDSSach.TabIndex = 25;
             // 
-            // dgv
+            // dgvKhachHang
             // 
-            dgv.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv.Location = new Point(5, 298);
-            dgv.Name = "dgv";
-            dgv.RowHeadersWidth = 51;
-            dgv.Size = new Size(1019, 411);
-            dgv.TabIndex = 24;
+            dgvKhachHang.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvKhachHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvKhachHang.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvKhachHang.Location = new Point(5, 298);
+            dgvKhachHang.Name = "dgvKhachHang";
+            dgvKhachHang.RowHeadersWidth = 51;
+            dgvKhachHang.Size = new Size(1019, 411);
+            dgvKhachHang.TabIndex = 24;
+            dgvKhachHang.CellClick += dgvKhachHang_CellClick;
+            dgvKhachHang.CellContentClick += dgvKhachHang_CellClick;
             // 
             // frmKhachHang
             // 
@@ -364,13 +369,12 @@
             Controls.Add(label2);
             Controls.Add(pictureBox1);
             Controls.Add(tlpDSSach);
-            Controls.Add(dgv);
+            Controls.Add(dgvKhachHang);
             Font = new Font("Cambria", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4, 3, 4, 3);
             Name = "frmKhachHang";
             Text = "frmKhachHang";
-            Load += frmKhachHang_Load;
             gThongTin.ResumeLayout(false);
             gThongTin.PerformLayout();
             tlpTimKiem.ResumeLayout(false);
@@ -379,7 +383,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             tlpDSSach.ResumeLayout(false);
             tlpDSSach.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgv).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvKhachHang).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -399,7 +403,7 @@
         private Label label2;
         private PictureBox pictureBox1;
         private TableLayoutPanel tlpDSSach;
-        private DataGridView dgv;
+        private DataGridView dgvKhachHang;
         private TextBox txtEmail;
         private Label label7;
         private TextBox txtDienThoai;
@@ -409,6 +413,7 @@
         private TextBox txtTen;
         private Label label4;
         private TextBox txtMaKH;
+        private TextBox txtMa;
         private Label label3;
 
         private void txtDienThoai_KeyPress(object sender, KeyPressEventArgs e)
