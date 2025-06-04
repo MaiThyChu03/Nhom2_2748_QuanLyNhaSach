@@ -119,6 +119,7 @@
             // numSoLuong
             // 
             numSoLuong.Location = new Point(122, 136);
+            numSoLuong.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
             numSoLuong.Name = "numSoLuong";
             numSoLuong.Size = new Size(171, 31);
             numSoLuong.TabIndex = 27;

@@ -158,6 +158,7 @@
             btnLuu.TextAlign = ContentAlignment.MiddleRight;
             btnLuu.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnLuu.UseVisualStyleBackColor = false;
+            btnLuu.Click += btnLuu_Click;
             // 
             // checkQD2_2
             // 

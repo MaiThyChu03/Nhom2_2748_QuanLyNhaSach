@@ -36,7 +36,7 @@ namespace quanlynhasach
             dtpNgayLap.CustomFormat = "dd-MM-yyyy HH:mm:ss";
             ConnectDatabase();
             LoadKhachHang();
-            LoadSachNhap();
+            LoadSach();
             InitCTHD();
             SetButtonMode();
         }
@@ -59,18 +59,16 @@ namespace quanlynhasach
             conn.Open();
         }
 
-        private void LoadSachNhap()
+        private void LoadSach()
         {
             string query = @"
                 SELECT 
-                    ctpn.MaSach, 
-                    s.TenSach, 
-                    ctpn.SoLuong AS SoLuongNhap, 
-                    ctpn.DonGiaNhap, 
-                    ctpn.MaPN
-                FROM CTPhieuNhap ctpn
-                JOIN Sach s ON ctpn.MaSach = s.MaSach
-                ORDER BY ctpn.MaSach, ctpn.MaPN DESC
+                    MaSach, 
+                    TenSach, 
+                    SoLuong AS SoLuongTon
+                FROM Sach
+                WHERE SoLuong > 0
+                ORDER BY MaSach
             ";
             dtSach = new DataTable();
             using (var cmd = new SqliteCommand(query, conn))
@@ -98,16 +96,25 @@ namespace quanlynhasach
             {
                 string maSach = dgvChon.CurrentRow.Cells["MaSach"].Value.ToString();
                 string tenSach = dgvChon.CurrentRow.Cells["TenSach"].Value.ToString();
-                string maPN = dgvChon.CurrentRow.Cells["MaPN"].Value.ToString();
-                int soLuongNhap = Convert.ToInt32(dgvChon.CurrentRow.Cells["SoLuongNhap"].Value);
-                decimal donGiaNhap = Convert.ToDecimal(dgvChon.CurrentRow.Cells["DonGiaNhap"].Value);
+                int soLuongTon = Convert.ToInt32(dgvChon.CurrentRow.Cells["SoLuongTon"].Value);
+
+                // Lấy đơn giá nhập mới nhất từ CTPhieuNhap
+                decimal donGiaNhap = 0;
+                string sql = "SELECT DonGiaNhap FROM CTPhieuNhap WHERE MaSach = @MaSach ORDER BY MaPN DESC LIMIT 1";
+                using (var cmd = new SqliteCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@MaSach", maSach);
+                    var result = cmd.ExecuteScalar();
+                    if (result != null && result != DBNull.Value)
+                        donGiaNhap = Convert.ToDecimal(result);
+                }
 
                 int soLuong = (int)nSoLuong.Value;
                 decimal DonGia = Math.Round(donGiaNhap * 1.05m, 2);
 
-                if (soLuong <= 0 || soLuong > soLuongNhap)
+                if (soLuong <= 0 || soLuong > soLuongTon)
                 {
-                    MessageBox.Show("Số lượng bán phải lớn hơn 0 và không vượt quá số lượng nhập.");
+                    MessageBox.Show("Số lượng bán phải lớn hơn 0 và không vượt quá số lượng tồn.");
                     return;
                 }
 
@@ -118,9 +125,9 @@ namespace quanlynhasach
                     {
                         int soLuongHienTai = Convert.ToInt32(row["SoLuong"]);
                         int tongSoLuong = soLuongHienTai + soLuong;
-                        if (tongSoLuong > soLuongNhap)
+                        if (tongSoLuong > soLuongTon)
                         {
-                            MessageBox.Show("Tổng số lượng bán vượt quá số lượng nhập.");
+                            MessageBox.Show("Tổng số lượng bán vượt quá số lượng tồn.");
                             return;
                         }
                         row["SoLuong"] = tongSoLuong;
@@ -130,14 +137,12 @@ namespace quanlynhasach
                     }
                 }
 
-                // Có thể kiểm tra trùng mã sách + mã phiếu nhập nếu muốn gom dòng
                 DataRow newRow = dtCTHD.NewRow();
                 newRow["MaSach"] = maSach;
                 newRow["TenSach"] = tenSach;
                 newRow["SoLuong"] = soLuong;
                 newRow["DonGia"] = DonGia;
                 newRow["ThanhTien"] = soLuong * DonGia;
-                // Nếu muốn lưu MaPN để truy vết, có thể thêm cột MaPN vào dtCTHD
                 dtCTHD.Rows.Add(newRow);
             }
         }
@@ -512,6 +517,33 @@ namespace quanlynhasach
                 return;
             }
 
+            if (QuyDinhConfig.ApDungQD2_2)
+            {
+                foreach (DataRow row in dtCTHD.Rows)
+                {
+                    string maSach = row["MaSach"].ToString();
+                    int soLuongBan = Convert.ToInt32(row["SoLuong"]);
+                    int soLuongTon = 0;
+                    using (var cmd = new SqliteCommand("SELECT SoLuong FROM Sach WHERE MaSach = @MaSach", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@MaSach", maSach);
+                        var result = cmd.ExecuteScalar();
+                        if (result != null) soLuongTon = Convert.ToInt32(result);
+                    }
+                    int tonToiThieu = QuyDinhConfig.SoLuongTonToiThieuTruocKhiBan;
+                    if (soLuongTon < tonToiThieu)
+                    {
+                        MessageBox.Show($"Sách '{row["TenSach"]}' có số lượng tồn ({soLuongTon}) nhỏ hơn số lượng tồn tối thiểu trước khi bán ({tonToiThieu})!");
+                        return;
+                    }
+                    if ((soLuongTon - soLuongBan) < tonToiThieu)
+                    {
+                        MessageBox.Show($"Sau khi bán, sách '{row["TenSach"]}' sẽ còn ({soLuongTon - soLuongBan}), nhỏ hơn số lượng tồn tối thiểu sau khi bán ({tonToiThieu})!");
+                        return;
+                    }
+                }
+            }
+
             string sqlHD = "INSERT INTO HoaDon (MaHD, NgayLap, MaKH, NguoiLap) VALUES (@MaHD, @NgayLap, @MaKH, @NguoiLap)";
             using (var cmd = new SqliteCommand(sqlHD, conn))
             {
@@ -556,7 +588,7 @@ namespace quanlynhasach
             txtMa.Clear();
             nSoLuong.Value = 0;
             nGia.Value = 0;
-            LoadSachNhap();
+            LoadSach();
             this.Close();
         }
 
@@ -686,27 +718,30 @@ namespace quanlynhasach
         private void dgvChon_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvChon.CurrentRow == null) return;
-            // Kiểm tra dòng hiện tại có phải là dòng mới (dòng trống cuối cùng) không
             if (dgvChon.CurrentRow.IsNewRow) return;
 
-            // Kiểm tra dữ liệu cell không null trước khi gán
-            var cellSoLuongNhap = dgvChon.CurrentRow.Cells["SoLuongNhap"].Value;
-            var cellDonGiaNhap = dgvChon.CurrentRow.Cells["DonGiaNhap"].Value;
+            string maSach = dgvChon.CurrentRow.Cells["MaSach"].Value.ToString();
+            int soLuongTon = Convert.ToInt32(dgvChon.CurrentRow.Cells["SoLuongTon"].Value);
 
-            if (cellSoLuongNhap != null && cellDonGiaNhap != null
-                && decimal.TryParse(cellSoLuongNhap.ToString(), out decimal soLuongNhap)
-                && decimal.TryParse(cellDonGiaNhap.ToString(), out decimal donGiaNhap))
+            // Lấy đơn giá nhập mới nhất từ CTPhieuNhap
+            decimal donGiaNhap = 0;
+            string sql = "SELECT DonGiaNhap FROM CTPhieuNhap WHERE MaSach = @MaSach ORDER BY MaPN DESC LIMIT 1";
+            using (var cmd = new SqliteCommand(sql, conn))
             {
-                nSoLuong.Maximum = soLuongNhap;
-                nSoLuong.Value = soLuongNhap > 0 ? 1 : 0;
-                decimal giaMoi = Math.Round(donGiaNhap * 1.05m, 2);
-                if (giaMoi > nGia.Maximum) nGia.Maximum = giaMoi;
-                if (giaMoi < nGia.Minimum) nGia.Minimum = giaMoi;
-                nGia.Value = giaMoi;
-                nGia.ReadOnly = true;
-                nGia.Controls[0].Enabled = false;
-                nGia.TabStop = false;
+                cmd.Parameters.AddWithValue("@MaSach", maSach);
+                var result = cmd.ExecuteScalar();
+                if (result != null && result != DBNull.Value)
+                    donGiaNhap = Convert.ToDecimal(result);
             }
+
+            nSoLuong.Maximum = soLuongTon;
+            nSoLuong.Value = soLuongTon > 0 ? 1 : 0;
+
+            decimal giaMoi = Math.Round(donGiaNhap * 1.05m, 2);
+            nGia.Value = giaMoi;
+            nGia.ReadOnly = true;
+            nGia.Controls[0].Enabled = false;
+            nGia.TabStop = false;
         }
 
 
@@ -780,7 +815,7 @@ namespace quanlynhasach
 
             // Load lại danh sách khách hàng và sách nhập
             LoadKhachHang();
-            LoadSachNhap();
+            LoadSach();
         }
 
         private void SetButtonMode()

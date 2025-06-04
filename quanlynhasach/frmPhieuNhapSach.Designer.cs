@@ -339,6 +339,7 @@
             // nGia
             // 
             nGia.Location = new Point(1050, 93);
+            nGia.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
             nGia.Name = "nGia";
             nGia.Size = new Size(125, 31);
             nGia.TabIndex = 19;
@@ -346,6 +347,7 @@
             // nSoLuong
             // 
             nSoLuong.Location = new Point(792, 93);
+            nSoLuong.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
             nSoLuong.Name = "nSoLuong";
             nSoLuong.Size = new Size(73, 31);
             nSoLuong.TabIndex = 19;

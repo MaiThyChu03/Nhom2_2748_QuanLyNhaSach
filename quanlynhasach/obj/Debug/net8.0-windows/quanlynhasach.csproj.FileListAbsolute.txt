@@ -327,3 +327,4 @@ D:\Hanh\Nhom2_2748_QuanLyNhaSach\quanlynhasach\obj\Debug\net8.0-windows\refint\q
 D:\Hanh\Nhom2_2748_QuanLyNhaSach\quanlynhasach\obj\Debug\net8.0-windows\quanlynhasach.pdb
 D:\Hanh\Nhom2_2748_QuanLyNhaSach\quanlynhasach\obj\Debug\net8.0-windows\quanlynhasach.genruntimeconfig.cache
 D:\Hanh\Nhom2_2748_QuanLyNhaSach\quanlynhasach\obj\Debug\net8.0-windows\ref\quanlynhasach.dll
+D:\Hanh\Nhom2_2748_QuanLyNhaSach\quanlynhasach\bin\Debug\net8.0-windows\quanlynhasach.dll.config

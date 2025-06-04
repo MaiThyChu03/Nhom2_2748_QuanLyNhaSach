@@ -201,6 +201,7 @@
             // 
             nGia.DecimalPlaces = 2;
             nGia.Location = new Point(991, 134);
+            nGia.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
             nGia.Name = "nGia";
             nGia.ReadOnly = true;
             nGia.Size = new Size(73, 31);
@@ -210,6 +211,7 @@
             // nSoLuong
             // 
             nSoLuong.Location = new Point(795, 132);
+            nSoLuong.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
             nSoLuong.Name = "nSoLuong";
             nSoLuong.Size = new Size(73, 31);
             nSoLuong.TabIndex = 49;

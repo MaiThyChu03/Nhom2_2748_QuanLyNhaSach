@@ -50,6 +50,9 @@ namespace quanlynhasach
             nQD1_2.Value = 300;
             nQD2_1.Value = 20000;
             nQD2_2.Value = 20;
+            checkQD1_1.Checked = QuyDinhConfig.ApDungQD1_1;
+            checkQD1_2.Checked = QuyDinhConfig.ApDungQD1_2;
+            checkQD2_2.Checked = QuyDinhConfig.ApDungQD2_2;
         }
 
         private void btnMacDinh_Click(object sender, EventArgs e)
@@ -58,10 +61,31 @@ namespace quanlynhasach
             nQD1_2.Value = 300;
             nQD2_1.Value = 20000;
             nQD2_2.Value = 20;
-            checkQD1_1.Checked=true;
-            checkQD1_2.Checked=true;
-            checkQD2_1.Checked=true;
-            checkQD2_2.Checked = true;
+            checkQD1_1.Checked = false;
+            checkQD1_2.Checked = false;
+            checkQD2_1.Checked = false;
+            checkQD2_2.Checked = false;
         }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            QuyDinhConfig.ApDungQD1_1 = checkQD1_1.Checked;
+            QuyDinhConfig.SoLuongNhapToiThieu = (int)nQD1_1.Value;
+
+            QuyDinhConfig.ApDungQD1_2 = checkQD1_2.Checked;
+            QuyDinhConfig.SoLuongTonToiDa = (int)nQD1_2.Value;
+
+            QuyDinhConfig.ApDungQD2_2 = checkQD2_2.Checked;
+            QuyDinhConfig.SoLuongTonToiThieuTruocKhiBan = (int)nQD2_2.Value;
+
+            // Nếu muốn lưu giữa các lần mở app, lưu vào Properties.Settings.Default
+            Properties.Settings.Default.QD1_1_Checked = checkQD1_1.Checked;
+            Properties.Settings.Default.QD1_2_Checked = checkQD1_2.Checked;
+            Properties.Settings.Default.QD2_2_Checked = checkQD2_2.Checked;
+            Properties.Settings.Default.Save();
+
+            MessageBox.Show("Đã lưu cấu hình quy định!");
+        }
+        
     }
 }

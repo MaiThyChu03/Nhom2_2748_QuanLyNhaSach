@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("quanlynhasach")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+734eabe9e9bb5188a8e241c95f4ebae5effa8ddd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7fb62bfce1d46dcbd2bbee0deb8604162295797f")]
 [assembly: System.Reflection.AssemblyProductAttribute("quanlynhasach")]
 [assembly: System.Reflection.AssemblyTitleAttribute("quanlynhasach")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -211,6 +211,40 @@ namespace quanlynhasach
                 return;
             }
 
+            // Kiểm tra QD1_1: Tổng số lượng nhập tối thiểu
+            if (QuyDinhConfig.ApDungQD1_1)
+            {
+                int tongSoLuong = 0;
+                foreach (DataRow row in dtCTPhieuNhap.Rows)
+                    tongSoLuong += Convert.ToInt32(row["SoLuong"]);
+                if (tongSoLuong < QuyDinhConfig.SoLuongNhapToiThieu)
+                {
+                    MessageBox.Show($"Tổng số lượng nhập phải tối thiểu {QuyDinhConfig.SoLuongNhapToiThieu}!");
+                    return;
+                }
+            }
+
+            // Kiểm tra QD1_2: Số lượng tồn tối thiểu trước khi nhập
+            if (QuyDinhConfig.ApDungQD1_2)
+            {
+                foreach (DataRow row in dtCTPhieuNhap.Rows)
+                {
+                    string maSach = row["MaSach"].ToString();
+                    int soLuongTon = 0;
+                    using (var cmd = new SqliteCommand("SELECT SoLuong FROM Sach WHERE MaSach = @MaSach", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@MaSach", maSach);
+                        var result = cmd.ExecuteScalar();
+                        if (result != null) soLuongTon = Convert.ToInt32(result);
+                    }
+                    if (soLuongTon > QuyDinhConfig.SoLuongTonToiDa)
+                    {
+                        MessageBox.Show($"Sách '{row["TenSach"]}' có số lượng tồn ({soLuongTon}) lớn hơn quy định tối đa ({QuyDinhConfig.SoLuongTonToiDa})!");
+                        return;
+                    }
+                }
+            }
+
             // Thêm phiếu nhập
             string sqlPN = "INSERT INTO PhieuNhap (MaPN, NgayNhap, NguoiLap) VALUES (@MaPN, @NgayNhap, @NguoiLap)";
             using (var cmd = new SqliteCommand(sqlPN, conn))
@@ -241,6 +275,13 @@ namespace quanlynhasach
                     cmdCT.Parameters.AddWithValue("@DonGiaNhap", row["DonGiaNhap"]);
                     cmdCT.ExecuteNonQuery();
                 }
+                string sqlUpdateDonGia = "UPDATE CTPhieuNhap SET DonGiaNhap = @DonGiaNhap WHERE MaSach = @MaSach";
+                using (var cmdUpdateDonGia = new SqliteCommand(sqlUpdateDonGia, conn))
+                {
+                    cmdUpdateDonGia.Parameters.AddWithValue("@DonGiaNhap", row["DonGiaNhap"]);
+                    cmdUpdateDonGia.Parameters.AddWithValue("@MaSach", row["MaSach"]);
+                    cmdUpdateDonGia.ExecuteNonQuery();
+                }
 
                 // Cập nhật số lượng sách trong kho
                 string sqlUpdate = "UPDATE Sach SET SoLuong = SoLuong + @SoLuong WHERE MaSach = @MaSach";
@@ -253,14 +294,12 @@ namespace quanlynhasach
             }
 
             MessageBox.Show("Thêm phiếu nhập thành công!");
-            dtCTPhieuNhap.Clear();
+            LoadPhieuNhap(maPN); // Nạp lại dữ liệu từ database để dgvCTPN hiển thị đúng đơn giá mới nhất
             txtMa.Clear();
             nSoLuong.Value = 0;
             nGia.Value = 0;
             LoadSach();
             this.Close();
-            return;
-
         }
 
         private void txtTimKiem_TextChanged(object sender, EventArgs e)
@@ -566,6 +605,24 @@ namespace quanlynhasach
                     cmdCT.Parameters.AddWithValue("@DonGiaNhap", row["DonGiaNhap"]);
                     cmdCT.ExecuteNonQuery();
                 }
+
+                // Cập nhật lại đơn giá nhập cho tất cả CTPN cùng mã sách
+                string sqlUpdateDonGia = "UPDATE CTPhieuNhap SET DonGiaNhap = @DonGiaNhap WHERE MaSach = @MaSach";
+                using (var cmdUpdateDonGia = new SqliteCommand(sqlUpdateDonGia, conn))
+                {
+                    cmdUpdateDonGia.Parameters.AddWithValue("@DonGiaNhap", row["DonGiaNhap"]);
+                    cmdUpdateDonGia.Parameters.AddWithValue("@MaSach", row["MaSach"]);
+                    cmdUpdateDonGia.ExecuteNonQuery();
+                }
+                // Cập nhật số lượng sách trong kho
+                string sqlUpdate = "UPDATE Sach SET SoLuong = SoLuong + @SoLuong WHERE MaSach = @MaSach";
+                using (var cmdUpdate = new SqliteCommand(sqlUpdate, conn))
+                {
+                    cmdUpdate.Parameters.AddWithValue("@SoLuong", row["SoLuong"]);
+                    cmdUpdate.Parameters.AddWithValue("@MaSach", row["MaSach"]);
+                    cmdUpdate.ExecuteNonQuery();
+                }
+
             }
 
             MessageBox.Show("Cập nhật chi tiết phiếu nhập thành công!");
