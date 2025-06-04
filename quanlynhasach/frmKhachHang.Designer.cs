@@ -35,7 +35,7 @@
             txtDiaChi = new TextBox();
             label1 = new Label();
             label5 = new Label();
-            textBox1 = new TextBox();
+            txtMaKH = new TextBox();
             txtTen = new TextBox();
             label3 = new Label();
             label4 = new Label();
@@ -44,7 +44,7 @@
             cbTimKiem = new ComboBox();
             btnXoa = new Button();
             btnSua = new Button();
-            button1 = new Button();
+            btnLamMoi = new Button();
             lbControl = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
             btnThem = new Button();
@@ -69,7 +69,7 @@
             gThongTin.Controls.Add(txtDiaChi);
             gThongTin.Controls.Add(label1);
             gThongTin.Controls.Add(label5);
-            gThongTin.Controls.Add(textBox1);
+            gThongTin.Controls.Add(txtMaKH);
             gThongTin.Controls.Add(txtTen);
             gThongTin.Controls.Add(label3);
             gThongTin.Controls.Add(label4);
@@ -141,15 +141,15 @@
             label5.TabIndex = 17;
             label5.Text = "Địa chỉ";
             // 
-            // textBox1
+            // txtMaKH
             // 
-            textBox1.BackColor = Color.FromArgb(218, 227, 229);
-            textBox1.BorderStyle = BorderStyle.FixedSingle;
-            textBox1.ForeColor = Color.SlateGray;
-            textBox1.Location = new Point(154, 32);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(275, 31);
-            textBox1.TabIndex = 22;
+            txtMaKH.BackColor = Color.FromArgb(218, 227, 229);
+            txtMaKH.BorderStyle = BorderStyle.FixedSingle;
+            txtMaKH.ForeColor = Color.SlateGray;
+            txtMaKH.Location = new Point(154, 32);
+            txtMaKH.Name = "txtMaKH";
+            txtMaKH.Size = new Size(275, 31);
+            txtMaKH.TabIndex = 22;
             // 
             // txtTen
             // 
@@ -205,14 +205,14 @@
             txtTimKiem.Name = "txtTimKiem";
             txtTimKiem.Size = new Size(669, 29);
             txtTimKiem.TabIndex = 2;
-            txtTimKiem.Text = "Nhập thông tin bạn muốn tra cứu";
+            txtTimKiem.TextChanged += txtTimKiem_TextChanged;
             // 
             // cbTimKiem
             // 
             cbTimKiem.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             cbTimKiem.BackColor = Color.FromArgb(218, 227, 229);
             cbTimKiem.FormattingEnabled = true;
-            cbTimKiem.Items.AddRange(new object[] { "Tên sách", "Mã sách", "Thể loại", "Tác giả" });
+            cbTimKiem.Items.AddRange(new object[] { "Mã Khách Hàng", "Tên Khách Hàng", "Email", "Điện Thoại" });
             cbTimKiem.Location = new Point(3, 3);
             cbTimKiem.Name = "cbTimKiem";
             cbTimKiem.Size = new Size(183, 29);
@@ -246,19 +246,19 @@
             btnSua.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSua.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btnLamMoi
             // 
-            button1.BackColor = Color.FromArgb(217, 234, 248);
-            button1.Dock = DockStyle.Fill;
-            button1.Image = Properties.Resources.tt_reset;
-            button1.Location = new Point(3, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(145, 36);
-            button1.TabIndex = 9;
-            button1.Text = "     Làm mới";
-            button1.TextAlign = ContentAlignment.MiddleRight;
-            button1.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button1.UseVisualStyleBackColor = false;
+            btnLamMoi.BackColor = Color.FromArgb(217, 234, 248);
+            btnLamMoi.Dock = DockStyle.Fill;
+            btnLamMoi.Image = Properties.Resources.tt_reset;
+            btnLamMoi.Location = new Point(3, 3);
+            btnLamMoi.Name = "btnLamMoi";
+            btnLamMoi.Size = new Size(145, 36);
+            btnLamMoi.TabIndex = 9;
+            btnLamMoi.Text = "     Làm mới";
+            btnLamMoi.TextAlign = ContentAlignment.MiddleRight;
+            btnLamMoi.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnLamMoi.UseVisualStyleBackColor = false;
             // 
             // lbControl
             // 
@@ -283,7 +283,7 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 19.8051949F));
             tableLayoutPanel1.Controls.Add(btnXoa, 3, 0);
             tableLayoutPanel1.Controls.Add(btnSua, 2, 0);
-            tableLayoutPanel1.Controls.Add(button1, 0, 0);
+            tableLayoutPanel1.Controls.Add(btnLamMoi, 0, 0);
             tableLayoutPanel1.Controls.Add(btnThem, 1, 0);
             tableLayoutPanel1.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
             tableLayoutPanel1.Location = new Point(379, 3);
@@ -370,6 +370,7 @@
             Margin = new Padding(4, 3, 4, 3);
             Name = "frmKhachHang";
             Text = "frmKhachHang";
+            Load += frmKhachHang_Load;
             gThongTin.ResumeLayout(false);
             gThongTin.PerformLayout();
             tlpTimKiem.ResumeLayout(false);
@@ -391,7 +392,7 @@
         private ComboBox cbTimKiem;
         private Button btnXoa;
         private Button btnSua;
-        private Button button1;
+        private Button btnLamMoi;
         private Label lbControl;
         private TableLayoutPanel tableLayoutPanel1;
         private Button btnThem;
@@ -407,7 +408,30 @@
         private Label label5;
         private TextBox txtTen;
         private Label label4;
-        private TextBox textBox1;
+        private TextBox txtMaKH;
         private Label label3;
+
+        private void txtDienThoai_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allow only digits and control keys (e.g., backspace)
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; // Prevent invalid input
+            }
+        }
+
+        private void txtEmail_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allow only valid email characters (letters, digits, '@', '.', '-', '_') and control keys
+            if (!char.IsLetterOrDigit(e.KeyChar) && 
+                e.KeyChar != '@' && 
+                e.KeyChar != '.' && 
+                e.KeyChar != '-' && 
+                e.KeyChar != '_' && 
+                !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; // Prevent invalid input
+            }
+        }
     }
 }

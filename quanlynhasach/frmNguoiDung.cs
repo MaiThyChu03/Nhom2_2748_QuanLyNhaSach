@@ -1,4 +1,3 @@
-﻿using System;
 using System.Data;
 using System.Windows.Forms;
 using Microsoft.Data.Sqlite;
@@ -13,11 +12,11 @@ namespace quanlynhasach
         {
             InitializeComponent();
             LoadData();
-            //dgv.CellClick += dgv_CellClick;
-            //btnThem.Click += btnThem_Click;
-            //btnSua.Click += btnSua_Click;
-            //btnXoa.Click += btnXoa_Click;
-            //btnLamMoi.Click += btnLamMoi_Click;
+            dgv.CellClick += dgv_CellClick;
+            btnThem.Click += btnThem_Click;
+            btnSua.Click += btnSua_Click;
+            btnXoa.Click += btnXoa_Click;
+            btnLamMoi.Click += btnLamMoi_Click;
         }
 
         private void LoadData()
@@ -211,5 +210,39 @@ namespace quanlynhasach
                 cbQuyen.Text = row.Cells["VaiTro"].Value?.ToString();
             }
         }
-    }
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            {
+                string keyword = txtTimKiem.Text.Trim();
+                if (string.IsNullOrEmpty(keyword))
+                {
+                    LoadData();
+                    return;
+                }
+
+                using (var conn = new SqliteConnection(connectionString))
+                {
+                    try
+                    {
+                        conn.Open();
+                        string query = "SELECT * FROM NguoiDung WHERE TenDN LIKE @kw OR HoTen LIKE @kw";
+                        using (var cmd = new SqliteCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@kw", "%" + keyword + "%");
+                            using (var reader = cmd.ExecuteReader())
+                            {
+                                DataTable dt = new DataTable();
+                                dt.Load(reader);
+                                dgv.DataSource = dt;
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi khi tìm kiếm: " + ex.Message);
+                    }
+                }
+            }
+        }
+    } 
 }

@@ -338,11 +338,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\nhom2_qlns\\QuanLyNhaSach_Nhom2_TH27.48\\quanlynhasach\\quanlynhasach.csproj",
+      "projectUniqueName": "D:\\nhom2_qlns\\QuanLyNhaSach_Nhom2_TH27.48\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\quanlynhasach.csproj",
       "projectName": "quanlynhasach",
-      "projectPath": "D:\\nhom2_qlns\\QuanLyNhaSach_Nhom2_TH27.48\\quanlynhasach\\quanlynhasach.csproj",
+      "projectPath": "D:\\nhom2_qlns\\QuanLyNhaSach_Nhom2_TH27.48\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\quanlynhasach.csproj",
       "packagesPath": "C:\\Users\\chuth\\.nuget\\packages\\",
-      "outputPath": "D:\\nhom2_qlns\\QuanLyNhaSach_Nhom2_TH27.48\\quanlynhasach\\obj\\",
+      "outputPath": "D:\\nhom2_qlns\\QuanLyNhaSach_Nhom2_TH27.48\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
