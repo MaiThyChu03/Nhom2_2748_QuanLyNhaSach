@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Data.Sqlite;
 
 namespace quanlynhasach
 {
@@ -46,22 +47,68 @@ namespace quanlynhasach
 
         private void frmCauHinh_Load(object sender, EventArgs e)
         {
-            nQD1_1.Value = 150;
-            nQD1_2.Value = 300;
-            nQD2_1.Value = 20000;
-            nQD2_2.Value = 20;
+            nQD2_1.Value = decimal.Parse(LoadConfig("QD02_SoTienNoToiDa", "0"));
+            checkQD2_1.Checked = LoadConfig("QD02_ApDung", "0") == "1";
         }
 
         private void btnMacDinh_Click(object sender, EventArgs e)
         {
-            nQD1_1.Value = 150;
-            nQD1_2.Value = 300;
             nQD2_1.Value = 20000;
-            nQD2_2.Value = 20;
-            checkQD1_1.Checked=true;
-            checkQD1_2.Checked=true;
-            checkQD2_1.Checked=true;
-            checkQD2_2.Checked = true;
+            checkQD2_1.Checked = true;
+            SaveConfig("QD02_SoTienNoToiDa", nQD2_1.Value.ToString());
+            SaveConfig("QD02_ApDung", checkQD2_1.Checked ? "1" : "0");
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {            SaveConfig("QD02_SoTienNoToiDa", nQD2_1.Value.ToString());
+            SaveConfig("QD02_ApDung", checkQD2_1.Checked ? "1" : "0");
+            MessageBox.Show("Đã lưu cấu hình thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void SaveConfig(string key, string value)
+        {
+            using var conn = new SqliteConnection("Data Source=nha_sach.db");
+            conn.Open();
+
+            string createCauHinhTable = @"
+                CREATE TABLE IF NOT EXISTS CauHinh (
+                    [Key] TEXT PRIMARY KEY,
+                    [Value] TEXT
+                );
+            ";
+            using (var cmdCauHinh = new SqliteCommand(createCauHinhTable, conn))
+            {
+                cmdCauHinh.ExecuteNonQuery();
+            }
+
+            string sql = "INSERT INTO CauHinh([Key], [Value]) VALUES(@Key, @Value) " +
+                         "ON CONFLICT([Key]) DO UPDATE SET [Value]=excluded.[Value]";
+            using var cmd = new SqliteCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@Key", key);
+            cmd.Parameters.AddWithValue("@Value", value);
+            cmd.ExecuteNonQuery();
+        }
+
+        private string LoadConfig(string key, string defaultValue = "0")
+        {
+            using var conn = new SqliteConnection("Data Source=nha_sach.db");
+            conn.Open();
+            string createCauHinhTable = @"
+                CREATE TABLE IF NOT EXISTS CauHinh (
+                    [Key] TEXT PRIMARY KEY,
+                    [Value] TEXT
+                );
+            ";
+            using (var cmdCauHinh = new SqliteCommand(createCauHinhTable, conn))
+            {
+                cmdCauHinh.ExecuteNonQuery();
+            }
+
+            string sql = "SELECT [Value] FROM CauHinh WHERE [Key]=@Key";
+            using var cmd = new SqliteCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@Key", key);
+            var result = cmd.ExecuteScalar();
+            return result?.ToString() ?? defaultValue;
         }
     }
 }
