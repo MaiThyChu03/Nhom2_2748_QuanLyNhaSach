@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.Sqlite;
 using static quanlynhasach.frmThem;
-
+using System.Drawing.Printing;
 
 namespace quanlynhasach
 {
@@ -22,6 +22,8 @@ namespace quanlynhasach
         private DataTable dtTheLoai;
         private DataTable dtTacGia;
         private DataTable dtCTPhieuNhap;
+        private DataTable _dtIn; // Lưu tạm dữ liệu để in
+        private string _maPN, _ngayNhap, _nguoiLap;
 
         public enum PhieuNhapMode { Them, Sua }
         private PhieuNhapMode _mode = PhieuNhapMode.Them;
@@ -424,6 +426,7 @@ namespace quanlynhasach
                     {
                         if (reader.Read())
                         {
+
                             maTL = reader["MaTL"].ToString();
                             maTG = reader["MaTG"].ToString();
                         }
@@ -671,25 +674,23 @@ namespace quanlynhasach
 
         private void btnIn_Click(object sender, EventArgs e)
         {
-            string maPN = txtMa.Text.Trim();
-            string ngayNhap = dtpNgayLap.Value.ToString("dd-MM-yyyy");
-            string nguoiLap = "admin"; // hoặc lấy từ đăng nhập
+            _maPN = txtMa.Text.Trim();
+            _ngayNhap = dtpNgayLap.Value.ToString("dd-MM-yyyy");
+            _nguoiLap = "admin";
 
-            // Nếu là phiếu nhập mới (chưa có trong DB)
             if (_mode == PhieuNhapMode.Them)
             {
-                btnThem_Click(sender, e); // Đảm bảo đã lưu phiếu nhập và chi tiết
-                // Sau khi lưu, có thể lấy lại mã phiếu nhập nếu cần
+                btnThem_Click(sender, e);
             }
 
-            // Lấy chi tiết phiếu nhập để in
-            DataTable dtIn = new DataTable();
-            dtIn.Columns.Add("STT", typeof(int));
-            dtIn.Columns.Add("TenSach");
-            dtIn.Columns.Add("TheLoai");
-            dtIn.Columns.Add("TacGia");
-            dtIn.Columns.Add("SoLuong", typeof(int));
-            dtIn.Columns.Add("DonGiaNhap", typeof(decimal));
+            // Lấy dữ liệu chi tiết phiếu nhập
+            _dtIn = new DataTable();
+            _dtIn.Columns.Add("STT", typeof(int));
+            _dtIn.Columns.Add("TenSach");
+            _dtIn.Columns.Add("TheLoai");
+            _dtIn.Columns.Add("TacGia");
+            _dtIn.Columns.Add("SoLuong", typeof(int));
+            _dtIn.Columns.Add("DonGiaNhap", typeof(decimal));
 
             using (var conn = new Microsoft.Data.Sqlite.SqliteConnection("Data Source=nha_sach.db"))
             {
@@ -702,13 +703,13 @@ namespace quanlynhasach
                                WHERE ct.MaPN = @MaPN";
                 using (var cmd = new Microsoft.Data.Sqlite.SqliteCommand(sql, conn))
                 {
-                    cmd.Parameters.AddWithValue("@MaPN", maPN);
+                    cmd.Parameters.AddWithValue("@MaPN", _maPN);
                     using (var reader = cmd.ExecuteReader())
                     {
                         int stt = 1;
                         while (reader.Read())
                         {
-                            dtIn.Rows.Add(
+                            _dtIn.Rows.Add(
                                 stt++,
                                 reader["TenSach"].ToString(),
                                 reader["TenTL"].ToString(),
@@ -721,9 +722,136 @@ namespace quanlynhasach
                 }
             }
 
-            // Hiển thị form in phiếu nhập
-            frmInPhieuNhapSach frm = new frmInPhieuNhapSach(maPN, ngayNhap, dtIn);
-            frm.ShowDialog();
+            PrintDocument pd = new PrintDocument();
+            pd.PrintPage += Pd_PrintPage;
+            PrintDialog dlg = new PrintDialog();
+            dlg.Document = pd;
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                pd.Print();
+            }
+        }
+
+        private void Pd_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            Font font = new Font("Times New Roman", 12);
+            Font fontBold = new Font("Times New Roman", 12, FontStyle.Bold);
+
+            float marginLeft = e.MarginBounds.Left;
+            float marginTop = e.MarginBounds.Top;
+            float tableWidth = e.MarginBounds.Width;
+            float rowHeight = 28;
+            float headerHeight = 28;
+            float y = marginTop;
+
+            float[] colPercents = { 0.08f, 0.22f, 0.18f, 0.18f, 0.14f, 0.20f };
+            int colCount = colPercents.Length;
+            float[] colWidths = new float[colCount];
+            for (int i = 0; i < colCount; i++)
+                colWidths[i] = tableWidth * colPercents[i];
+
+            string[] headers = { "STT", "Sách", "Thể Loại", "Tác Giả", "Số Lượng", "Đơn Giá Nhập" };
+
+            // --- Dòng đầu: Mã phiếu nhập và Tiêu đề ---
+            float maPNWidth = colWidths[0] + colWidths[1];
+            float titleWidth = tableWidth - maPNWidth;
+
+            // Mã phiếu nhập (sát trái)
+            g.FillRectangle(Brushes.Black, marginLeft, y, maPNWidth, headerHeight);
+            g.DrawRectangle(Pens.Black, marginLeft, y, maPNWidth, headerHeight);
+            g.DrawString(_maPN ?? "", fontBold, Brushes.White,
+                new RectangleF(marginLeft + 6, y, maPNWidth - 12, headerHeight),
+                new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center });
+
+            // Tiêu đề căn giữa toàn bảng
+            g.FillRectangle(Brushes.Black, marginLeft + maPNWidth, y, titleWidth, headerHeight);
+            g.DrawRectangle(Pens.Black, marginLeft + maPNWidth, y, titleWidth, headerHeight);
+            g.DrawString("Phiếu Nhập Sách", fontBold, Brushes.White,
+                new RectangleF(marginLeft, y, tableWidth, headerHeight),
+                new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+
+            y += headerHeight;
+            g.DrawRectangle(Pens.Black, marginLeft, marginTop, tableWidth, headerHeight);
+
+            // --- Dòng ngày nhập ---
+            float dateRowHeight = 28;
+            g.DrawRectangle(Pens.Black, marginLeft, y, tableWidth, dateRowHeight);
+            g.DrawString($"Ngày nhập: {(_ngayNhap ?? ".................................")}", font, Brushes.Black,
+                new RectangleF(marginLeft, y, tableWidth, dateRowHeight),
+                new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+            y += dateRowHeight;
+
+            // --- Header bảng ---
+            float tableX = marginLeft;
+            float tableY = y;
+            float colX = tableX;
+            for (int i = 0; i < headers.Length; i++)
+            {
+                g.FillRectangle(Brushes.Black, colX, tableY, colWidths[i], headerHeight);
+                g.DrawRectangle(Pens.Black, colX, tableY, colWidths[i], headerHeight);
+                g.DrawString(headers[i], fontBold, Brushes.White, new RectangleF(colX, tableY, colWidths[i], headerHeight),
+                    new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                colX += colWidths[i];
+            }
+            y += headerHeight;
+
+            // --- Nội dung bảng ---
+            int maxRows = 10;
+            int rowIdx = 0;
+            foreach (DataRow row in _dtIn.Rows)
+            {
+                colX = tableX;
+                g.DrawRectangle(Pens.Black, colX, y, colWidths[0], rowHeight);
+                g.DrawString(row["STT"].ToString(), font, Brushes.Black, new RectangleF(colX, y, colWidths[0], rowHeight),
+                    new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                colX += colWidths[0];
+
+                g.DrawRectangle(Pens.Black, colX, y, colWidths[1], rowHeight);
+                g.DrawString(row["TenSach"].ToString(), font, Brushes.Black, new RectangleF(colX, y, colWidths[1], rowHeight),
+                    new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                colX += colWidths[1];
+
+                g.DrawRectangle(Pens.Black, colX, y, colWidths[2], rowHeight);
+                g.DrawString(row["TheLoai"].ToString(), font, Brushes.Black, new RectangleF(colX, y, colWidths[2], rowHeight),
+                    new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                colX += colWidths[2];
+
+                g.DrawRectangle(Pens.Black, colX, y, colWidths[3], rowHeight);
+                g.DrawString(row["TacGia"].ToString(), font, Brushes.Black, new RectangleF(colX, y, colWidths[3], rowHeight),
+                    new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                colX += colWidths[3];
+
+                g.DrawRectangle(Pens.Black, colX, y, colWidths[4], rowHeight);
+                g.DrawString(row["SoLuong"].ToString(), font, Brushes.Black, new RectangleF(colX, y, colWidths[4], rowHeight),
+                    new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                colX += colWidths[4];
+
+                g.DrawRectangle(Pens.Black, colX, y, colWidths[5], rowHeight);
+                g.DrawString(string.Format("{0:N0}", row["DonGiaNhap"]), font, Brushes.Black, new RectangleF(colX, y, colWidths[5], rowHeight),
+                    new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                colX += colWidths[5];
+
+                y += rowHeight;
+                rowIdx++;
+                if (rowIdx >= maxRows) break;
+            }
+
+            for (; rowIdx < maxRows; rowIdx++)
+            {
+                colX = tableX;
+                for (int i = 0; i < headers.Length; i++)
+                {
+                    g.DrawRectangle(Pens.Black, colX, y, colWidths[i], rowHeight);
+                    colX += colWidths[i];
+                }
+                y += rowHeight;
+            }
+
+            float tableHeight = headerHeight + maxRows * rowHeight;
+            g.DrawRectangle(Pens.Black, tableX, tableY, tableWidth, tableHeight);
+
+            e.HasMorePages = false;
         }
     }
 }

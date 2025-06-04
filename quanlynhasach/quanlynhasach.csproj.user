@@ -19,12 +19,6 @@
     <Compile Update="frmHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="frmInHoaDon.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="frmInPhieuNhapSach.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="frmKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>

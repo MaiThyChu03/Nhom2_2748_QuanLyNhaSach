@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nIDgcWiPPFg=",
+  "dgSpecHash": "h0mcPfdAvcA=",
   "success": true,
-  "projectFilePath": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\quanlynhasach.csproj",
+  "projectFilePath": "D:\\Hanh\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\quanlynhasach.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ASUS\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

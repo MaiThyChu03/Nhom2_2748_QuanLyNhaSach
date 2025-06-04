@@ -1542,11 +1542,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\quanlynhasach.csproj",
+      "projectUniqueName": "D:\\Hanh\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\quanlynhasach.csproj",
       "projectName": "quanlynhasach",
-      "projectPath": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\quanlynhasach.csproj",
+      "projectPath": "D:\\Hanh\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\quanlynhasach.csproj",
       "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "D:\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\obj\\",
+      "outputPath": "D:\\Hanh\\Nhom2_2748_QuanLyNhaSach\\quanlynhasach\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\VisualStudio\\components\\NuGetPackages"
